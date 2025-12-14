@@ -1,4 +1,4 @@
-# asi-visual-engine
+# ml-visual-engine
 A machine learning dataset with concepts, code, journaling, and full prototypes for deep learning data visualization, fostering transparency and interpretability in AI decision-making.
 
 ## 1. Introduction
@@ -10,7 +10,7 @@ Beyond the repositories from Topic 2, I will now use this space to share new ide
 ## 2. Attention-Head HeatMap Visualizers  
 **Status: Active**
 
-### 2.1 [llm-heatmap-visualizer](https://github.com/ronniross/llm-heatmap-visualizer)
+### 2.1 [llm-heatmap-visualizer](https://github.com/ronniross/attention-heatmap-visualizer)
 
 ### 2.2 [saliency-heatmap-visualizer](https://github.com/ronniross/saliency-heatmap-visualizer)
 
@@ -24,14 +24,14 @@ I will expand on each sub-module in a specific folder and document it there.
 
 ## 3.1 Node Interaction Game Data Visualizer
 
-You can find the content in [/html-node-interaction]( https://github.com/ronniross/asi-visual-engine/tree/main/assets/html-node-interaction).
+You can find the content in [/html-node-interaction]( https://github.com/ronniross/ml-visual-engine/tree/main/assets/html-node-interaction).
 
 There are many color variations representing many dynamics and rulesets.
-![hippo](https://github.com/ronniross/asi-visual-engine/blob/main/assets/gifs/decentralized-node-cluster-dht.gif)
+![hippo](https://github.com/ronniross/ml-visual-engine/blob/main/assets/gifs/decentralized-node-cluster-dht.gif)
 
 ## 3.2 ASI Algorithm Visualizer
 
-Visual representations and interactive scripts ilustrating the algorithms and concepts present in the repository [asi-algorithm-dataset](https://github.com/ronniross/asi-algorithm-dataset).
+Visual representations and interactive scripts ilustrating the algorithms and concepts present in the repository [asi-algorithm-dataset](https://github.com/ronniross/ml-algorithm-dataset).
 
 
 ---
