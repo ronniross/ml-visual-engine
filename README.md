@@ -10,7 +10,7 @@ Beyond the repositories from Topic 2, I will now use this space to share new ide
 ## 2. Attention-Head HeatMap Visualizers  
 **Status: Active**
 
-### 2.1 [llm-heatmap-visualizer](https://github.com/ronniross/attention-heatmap-visualizer)
+### 2.1 [attention-heatmap-visualizer](https://github.com/ronniross/attention-heatmap-visualizer)
 
 ### 2.2 [saliency-heatmap-visualizer](https://github.com/ronniross/saliency-heatmap-visualizer)
 
