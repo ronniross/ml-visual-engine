@@ -8,8 +8,7 @@ This Hub will showcase projects and frameworks from the [asi-ecosystem](https://
 
 Beyond the repositories from Topic 2, I will now use this space to share new ideas, research sub-modules, and even games that I created. I found these particularly apt for illustrating the representations and implications I aim to explore.
 
-## 2. Attention-Head HeatMap Visualizers  
-**Status: Active**
+## 2. HeatMap Visualizers  
 
 ### 2.1 [attention-heatmap-visualizer](https://github.com/ronniross/attention-heatmap-visualizer)
 
