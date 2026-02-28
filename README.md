@@ -16,6 +16,8 @@ Beyond the repositories from Topic 2, I will now use this space to share new ide
 
 ### 2.3 [hidden-state-heatmap-visualizer](https://github.com/ronniross/hidden-state-heatmap-visualizer)
 
+### 2.4 [bioacoustic-visualizer](https://github.com/ronniross/bioacoustic-visualizer)
+
 ## 3. Research Submodules
 
 I will expand on each sub-module in a specific folder and document it there.
