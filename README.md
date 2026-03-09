@@ -8,7 +8,7 @@ This Hub will showcase projects and frameworks from the [asi-ecosystem](https://
 
 Beyond the repositories from Topic 2, I will now use this space to share new ideas, research sub-modules, and even games that I created. I found these particularly apt for illustrating the representations and implications I aim to explore.
 
-## 2. HeatMap Visualizers  
+## 2. Visualizers  
 
 ### 2.1 [attention-heatmap-visualizer](https://github.com/ronniross/attention-heatmap-visualizer)
 
@@ -17,6 +17,11 @@ Beyond the repositories from Topic 2, I will now use this space to share new ide
 ### 2.3 [hidden-state-heatmap-visualizer](https://github.com/ronniross/hidden-state-heatmap-visualizer)
 
 ### 2.4 [bioacoustic-visualizer](https://github.com/ronniross/bioacoustic-visualizer)
+
+### 2.5 [Knowledge Graph](https://github.com/ronniross/asi-ecosystem/blob/main/asi-ecosystem-knowledge-graph.ipynb) of the [asi-ecosystem](https://github.com/ronniross/asi-ecosystem)
+
+### 2.6 [Interactive Visualizer and Digital Workstation](https://github.com/ronniross/cognitive-compressor/blob/main/attractor-local-workstation.html) of the [cognitive-compressor](https://github.com/ronniross/cognitive-compressor)
+
 
 ## 3. Research Submodules
 
