@@ -22,7 +22,7 @@ Beyond the repositories from Topic 2, I will now use this space to share new ide
 
 ### 2.6 [interactive-attractor-visualizer-and-digital-wwrkstation](https://github.com/ronniross/cognitive-compressor/blob/main/attractor-local-workstation.html) of the [cognitive-compressor](https://github.com/ronniross/cognitive-compressor)
 
-### 2.7 [tension-holder-nerve-visualizers-folder](https://github.com/ronniross/tension-holder-nerve/tree/main/visualizers)
+### 2.7 [tension-holder-nerve-visualizers-folder](https://github.com/ronniross/tension-holder-nerve/tree/main/visualizers) of the [asi-ecosystem](https://github.com/ronniross/asi-ecosystem)
 
 ### 2.8 [asi-ecosystem-standalone-visualizers](https://github.com/ronniross/ml-visual-engine/tree/main/standalone-visualizers)
 
