@@ -26,6 +26,8 @@ Beyond the repositories from Topic 2, I will now use this space to share new ide
 
 ### 2.8 [asi-ecosystem-standalone-visualizers](https://github.com/ronniross/ml-visual-engine/tree/main/asi-ecosystem-standalone-visualizers)
 
+### 2.9 [standalone-conceptual-visualizers]([asi-ecosystem-standalone-visualizers](https://github.com/ronniross/ml-visual-engine/tree/main/asi-ecosystem-standalone-visualizers))
+
 ## 3. Research Submodules
 
 I will expand on each sub-module in a specific folder and document it there.
