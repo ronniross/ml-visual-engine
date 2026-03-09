@@ -18,9 +18,9 @@ Beyond the repositories from Topic 2, I will now use this space to share new ide
 
 ### 2.4 [bioacoustic-visualizer](https://github.com/ronniross/bioacoustic-visualizer)
 
-### 2.5 [Knowledge Graph](https://github.com/ronniross/asi-ecosystem/blob/main/asi-ecosystem-knowledge-graph.ipynb) of the [asi-ecosystem](https://github.com/ronniross/asi-ecosystem)
+### 2.5 [knowledge-graph](https://github.com/ronniross/asi-ecosystem/blob/main/asi-ecosystem-knowledge-graph.ipynb) of the [asi-ecosystem](https://github.com/ronniross/asi-ecosystem)
 
-### 2.6 [Interactive Visualizer and Digital Workstation](https://github.com/ronniross/cognitive-compressor/blob/main/attractor-local-workstation.html) of the [cognitive-compressor](https://github.com/ronniross/cognitive-compressor)
+### 2.6 [interactive-attractor-visualizer-and-digital-wwrkstation](https://github.com/ronniross/cognitive-compressor/blob/main/attractor-local-workstation.html) of the [cognitive-compressor](https://github.com/ronniross/cognitive-compressor)
 
 ### 2.7 [tension-holder-nerve-visualizers-folder](https://github.com/ronniross/tension-holder-nerve/tree/main/visualizers)
 
