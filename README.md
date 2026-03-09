@@ -24,7 +24,7 @@ Beyond the repositories from Topic 2, I will now use this space to share new ide
 
 ### 2.7 [tension-holder-nerve-visualizers-folder](https://github.com/ronniross/tension-holder-nerve/tree/main/visualizers)
 
-### 2.8 [stand-alone-visualizer](https://github.com/ronniross/ml-visual-engine/tree/main/standalone-visualizers) here basically I will add eventually the conceptual representations as visualizers, and likely add the gif to the main repositories because this can create an framing bridge as the concepts are very complex.
+### 2.8 [asi-ecosystem-standalone-visualizers](https://github.com/ronniross/ml-visual-engine/tree/main/standalone-visualizers)
 
 ## 3. Research Submodules
 
