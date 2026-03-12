@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mycorrhizal Network Visualization</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #050404;
+            overflow: hidden;
+            font-family: sans-serif;
+        }
+        canvas {
+            display: block;
+        }
+        #ui {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            pointer-events: none;
+        }
+        h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #d4a373;
+            text-shadow: 0 0 10px rgba(212, 163, 115, 0.5);
+        }
+        p {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+            color: #88ccff;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="ui">
+        <h1>The Wood Wide Web</h1>
+        <p>Fractal Roots & Interconnecting Mycelium</p>
+    </div>
+
+    <canvas id="networkCanvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('networkCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let growers = [];
+        let myceliumNodes = [];
+
+        // Setup Canvas Fullscreen
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            // Draw underground gradient background
+            const bgGradient = ctx.createRadialGradient(width/2, 0, 0, width/2, height/2, height);
+            bgGradient.addColorStop(0, '#1a120b');
+            bgGradient.addColorStop(1, '#050404');
+            ctx.fillStyle = bgGradient;
+            ctx.fillRect(0, 0, width, height);
+        }
+        window.addEventListener('resize', resize);
+        
+        // Math utilities
+        const random = (min, max) => Math.random() * (max - min) + min;
+        const distance = (x1, y1, x2, y2) => Math.hypot(x2 - x1, y2 - y1);
+
+        class Grower {
+            constructor(x, y, angle, thickness, length, depth, type, plantId) {
+                this.x = x;
+                this.y = y;
+                this.angle = angle;
+                this.thickness = thickness;
+                this.length = length; // How much it grows per frame
+                this.depth = depth;   // Fractal generation depth
+                this.type = type;     // 'root' or 'mycelium'
+                this.plantId = plantId; // To identify which tree it belongs to
+                
+                this.age = 0;
+                this.maxAge = random(20, 60);
+                this.dead = false;
+                
+                // Organic wandering
+                this.angleOffset = random(-0.05, 0.05);
+            }
+
+            update() {
+                if (this.dead) return;
+
+                // Move forward
+                const oldX = this.x;
+                const oldY = this.y;
+                
+                // Add organic curve
+                if (this.type === 'root') {
+                    this.angle += random(-0.1, 0.1);
+                    // Force roots to generally go downward
+                    if (this.angle < 0) this.angle += 0.05;
+                    if (this.angle > Math.PI) this.angle -= 0.05;
+                } else {
+                    this.angle += random(-0.3, 0.3) + this.angleOffset;
+                }
+
+                this.x += Math.cos(this.angle) * this.length;
+                this.y += Math.sin(this.angle) * this.length;
+
+                this.draw(oldX, oldY);
+
+                // Store mycelium points to create the interconnecting network web
+                if (this.type === 'mycelium' && Math.random() < 0.2) {
+                    myceliumNodes.push({x: this.x, y: this.y, plantId: this.plantId});
+                    this.drawConnections();
+                }
+
+                this.age++;
+
+                // Branching Logic
+                if (this.age >= this.maxAge) {
+                    this.dead = true;
+                    this.branch();
+                }
+            }
+
+            draw(oldX, oldY) {
+                ctx.beginPath();
+                ctx.moveTo(oldX, oldY);
+                ctx.lineTo(this.x, this.y);
+                
+                if (this.type === 'root') {
+                    // Root styling (Brown/Amber)
+                    ctx.strokeStyle = `rgba(212, 163, 115, ${0.4 + (this.depth * 0.1)})`;
+                    ctx.lineWidth = this.thickness;
+                    ctx.shadowBlur = 0;
+                } else {
+                    // Mycelium styling (Glowing Cyan/White)
+                    ctx.strokeStyle = `rgba(136, 204, 255, 0.6)`;
+                    ctx.lineWidth = this.thickness;
+                    ctx.shadowColor = '#00ffff';
+                    ctx.shadowBlur = 5;
+                }
+                
+                ctx.stroke();
+                ctx.shadowBlur = 0; // Reset
+            }
+
+            branch() {
+                // If it's a root and reached max depth, turn into mycelium
+                if (this.type === 'root' && this.depth > 5) {
+                    // Sprout 2-4 mycelium threads
+                    let numThreads = Math.floor(random(2, 5));
+                    for (let i = 0; i < numThreads; i++) {
+                        growers.push(new Grower(
+                            this.x, this.y, 
+                            this.angle + random(-Math.PI, Math.PI), // Branch out in any direction
+                            0.5, // Thin mycelium
+                            random(1, 2), 
+                            this.depth + 1, 
+                            'mycelium',
+                            this.plantId
+                        ));
+                    }
+                    return;
+                }
+
+                // Stop mycelium from growing forever
+                if (this.type === 'mycelium' && this.depth > 12) return;
+
+                // Normal branching (fractal logic)
+                let numBranches = this.type === 'root' ? random(1, 3) : random(1, 2);
+                
+                for (let i = 0; i < numBranches; i++) {
+                    let spread = this.type === 'root' ? 0.6 : 1.2;
+                    let newAngle = this.angle + random(-spread, spread);
+                    let newThickness = this.thickness * 0.7;
+                    if (newThickness < 0.2) newThickness = 0.2;
+
+                    growers.push(new Grower(
+                        this.x, this.y,
+                        newAngle,
+                        newThickness,
+                        this.length * random(0.8, 1.1),
+                        this.depth + 1,
+                        this.type,
+                        this.plantId
+                    ));
+                }
+            }
+
+            // The Mycorrhizal "Network" effect - connect to nearby mycelium from OTHER plants
+            drawConnections() {
+                for (let i = 0; i < myceliumNodes.length; i++) {
+                    let node = myceliumNodes[i];
+                    
+                    // Don't connect to self or same plant (encourages cross-plant networking)
+                    if (node.plantId === this.plantId && Math.random() > 0.05) continue; 
+
+                    let dist = distance(this.x, this.y, node.x, node.y);
+                    
+                    // Connection threshold distance
+                    if (dist > 5 && dist < 40) {
+                        ctx.beginPath();
+                        ctx.moveTo(this.x, this.y);
+                        ctx.lineTo(node.x, node.y);
+                        // Faint, glowing network web
+                        ctx.strokeStyle = `rgba(0, 255, 200, ${0.15 - (dist/40) * 0.15})`;
+                        ctx.lineWidth = 0.3;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function init() {
+            resize();
+            growers = [];
+            myceliumNodes = [];
+            
+            // Create Plant Bases at the top of the screen
+            const numPlants = Math.floor(width / 150); // One plant every ~150px
+            
+            for (let i = 0; i < numPlants; i++) {
+                let startX = (width / numPlants) * i + (width / numPlants) / 2;
+                // Plant roots start at the very top, moving downwards (PI/2 = 90 degrees down)
+                growers.push(new Grower(
+                    startX + random(-20, 20), 
+                    -10, 
+                    Math.PI / 2 + random(-0.2, 0.2), 
+                    random(4, 7), // Thick main taproot
+                    random(2, 4), // Growth speed
+                    0, // depth
+                    'root',
+                    i // plantId
+                ));
+            }
+
+            animate();
+        }
+
+        function animate() {
+            // Only keep growing branches in the array to save performance
+            let activeGrowers = [];
+            
+            for (let i = 0; i < growers.length; i++) {
+                growers[i].update();
+                if (!growers[i].dead) {
+                    activeGrowers.push(growers[i]);
+                }
+            }
+            growers = activeGrowers;
+
+            // Keep drawing as long as there are active growers
+            if (growers.length > 0) {
+                requestAnimationFrame(animate);
+            } else {
+                console.log("Network fully grown!");
+            }
+        }
+
+        // Start the simulation
+        init();
+
+        // Restart on click
+        window.addEventListener('click', init);
+
+    </script>
+</body>
+</html>
