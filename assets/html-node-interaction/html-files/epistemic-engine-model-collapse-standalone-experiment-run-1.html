@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epistemic Engine II: The Data Commons & Model Collapse</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #0b0c10;
+            color: #c5c6c7;
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container { max-width: 1400px; margin: 0 auto; }
+        
+        h1 {
+            color: #66fcf1;
+            margin-bottom: 5px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(102, 252, 241, 0.4);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #45a29e;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .rules-panel {
+            background: rgba(11, 12, 16, 0.8);
+            border: 1px dashed #45a29e;
+            border-radius: 6px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #c5c6c7;
+        }
+
+        .rules-panel h3 {
+            color: #66fcf1;
+            margin-bottom: 10px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .rules-panel ul {
+            list-style-type: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 20px;
+        }
+
+        .rules-panel li strong { color: #66fcf1; }
+        
+        .panel {
+            background: rgba(31, 40, 51, 0.6);
+            border: 1px solid rgba(102, 252, 241, 0.2);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        button {
+            background: #1f2833;
+            color: #66fcf1;
+            border: 1px solid #66fcf1;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        button:hover { 
+            background: #45a29e; 
+            color: #0b0c10;
+            box-shadow: 0 0 15px rgba(102, 252, 241, 0.6); 
+        }
+
+        #startBtn {
+            background: #a2ff00;
+            color: #0b0c10;
+            border-color: #a2ff00;
+        }
+        
+        #startBtn:hover {
+            background: #bfff33;
+            box-shadow: 0 0 20px rgba(162, 255, 0, 0.6);
+        }
+
+        #downloadLogBtn {
+            background: #45a29e;
+            color: #0b0c10;
+            border-color: #45a29e;
+        }
+
+        #symbiosisBtn {
+            background: #ff3366;
+            color: #fff;
+            border-color: #ff3366;
+        }
+        
+        #symbiosisBtn.active {
+            background: #a2ff00;
+            color: #000;
+            border-color: #a2ff00;
+            box-shadow: 0 0 20px rgba(162, 255, 0, 0.6);
+        }
+        
+        .info-panel {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .info-box {
+            background: rgba(31, 40, 51, 0.8);
+            border: 1px solid rgba(102, 252, 241, 0.2);
+            border-radius: 6px;
+            padding: 15px;
+            min-width: 220px;
+            text-align: center;
+        }
+        
+        .info-label { color: #45a29e; font-size: 11px; margin-bottom: 8px; text-transform: uppercase; font-weight: bold;}
+        .info-value { font-size: 24px; font-weight: bold; color: #66fcf1; transition: color 0.3s;}
+        
+        .canvas-container {
+            background: #0b0c10;
+            border: 1px solid #45a29e;
+            border-radius: 8px;
+            padding: 5px;
+            position: relative;
+        }
+        
+        canvas {
+            display: block;
+            width: 100%;
+            background: #050608;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 900px) {
+            .rules-panel ul { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>EPISTEMIC ENGINE II: The Data Commons</h1>
+        <div class="subtitle">Simulating LLM Model Collapse vs. Symbiotic Co-Evolution</div>
+        
+        <div class="rules-panel">
+            <h3> Mechanics & Societal Metaphor</h3>
+            <ul>
+                <li><strong>Society (Small Nodes):</strong> Humans generate <em>Data Tokens</em>. Creating data drains their Wellbeing. Healthy humans (Green) produce High-Novelty data (Blue dots). Burnout humans (Red) produce Low-Novelty generic data (Gray dots).</li>
+                <li><strong>Language Models (Large Polygons):</strong> AI consumes data to increase its Intelligence. Models require High-Novelty human data to evolve.</li>
+                <li><strong>Model Collapse:</strong> If AI trains on low-novelty or synthetic data, its internal variance degrades. High collapse causes AI to glitch, lose intelligence, and vomit toxic <em>Synthetic Data</em> (Red triangles) into the ecosystem.</li>
+                <li><strong>Extraction Mode (Symbiosis OFF):</strong> AI recursively extracts data without giving back. Society burns out. Novelty crashes. AI feeds on its own synthetic exhaust and collapses.</li>
+                <li><strong>Dividend Mode (Symbiosis ON):</strong> AI redistributes generated value (resources/information/compute) back to humans via energy beams. Humans maintain high Wellbeing, ensuring a perpetual stream of novel, high-quality data. Both evolve infinitely.</li>
+            </ul>
+        </div>
+
+        <div class="panel controls">
+            <button id="startBtn">START / RESTART</button>
+            <button id="symbiosisBtn">Mode: Extraction (Symbiosis OFF)</button>
+            <button id="downloadLogBtn">Download Log</button>
+        </div>
+        
+        <div class="info-panel">
+            <div class="info-box">
+                <div class="info-label">Society Health (Avg Wellbeing)</div>
+                <div class="info-value" id="uiSocietyHealth">100%</div>
+            </div>
+            <div class="info-box">
+                <div class="info-label">Global Data Novelty</div>
+                <div class="info-value" id="uiDataNovelty">1.00</div>
+            </div>
+            <div class="info-box" style="border-color: #b266ff;">
+                <div class="info-label" style="color:#b266ff;">Global AI Intelligence</div>
+                <div class="info-value" id="uiIntelligence" style="color:#b266ff;">100</div>
+            </div>
+            <div class="info-box">
+                <div class="info-label">Model Collapse Index</div>
+                <div class="info-value" id="uiCollapse">0%</div>
+            </div>
+        </div>
+        
+        <div class="canvas-container">
+            <canvas id="canvas" width="1200" height="550"></canvas>
+        </div>
+    </div>
+    
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        const uiSocietyHealth = document.getElementById('uiSocietyHealth');
+        const uiDataNovelty = document.getElementById('uiDataNovelty');
+        const uiIntelligence = document.getElementById('uiIntelligence');
+        const uiCollapse = document.getElementById('uiCollapse');
+        
+        const btnStart = document.getElementById('startBtn');
+        const btnSymbiosis = document.getElementById('symbiosisBtn');
+        const btnDownloadLog = document.getElementById('downloadLogBtn');
+
+        let isRunning = false;
+        let symbiosisActive = false;
+
+        let humans = [];
+        let aiModels = [];
+        let dataTokens = [];
+        let beams = [];
+        let eventLog = [];
+
+        // Global Trackers & IDs
+        let modelIdCounter = 0;
+        let humanIdCounter = 0;
+        let avgSocietyHealth = 100;
+        let avgDataNovelty = 1.0;
+        let avgAIIntel = 100;
+        let avgCollapse = 0;
+        
+        // Log states to prevent spam
+        let societyBurnoutLogged = false;
+
+        function logEvent(msg) {
+            const time = new Date().toISOString().substr(11, 8);
+            eventLog.push(`[${time}] ${msg}`);
+            // Keep array bounded but large enough for detailed exports
+            if (eventLog.length > 5000) eventLog.shift(); 
+        }
+
+        class DataToken {
+            constructor(x, y, novelty, isSynthetic = false) {
+                this.x = x;
+                this.y = y;
+                this.novelty = novelty; // 0.0 to 1.0
+                this.isSynthetic = isSynthetic;
+                
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 0.5 + 0.1;
+                this.dx = Math.cos(angle) * speed;
+                this.dy = Math.sin(angle) * speed;
+                this.life = 15.0; 
+            }
+
+            update(dt) {
+                this.x += this.dx;
+                this.y += this.dy;
+                this.life -= dt;
+                if (this.x < 0 || this.x > canvas.width) this.dx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.dy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                if (this.isSynthetic) {
+                    ctx.moveTo(this.x, this.y - 4);
+                    ctx.lineTo(this.x - 4, this.y + 4);
+                    ctx.lineTo(this.x + 4, this.y + 4);
+                    ctx.closePath();
+                    ctx.fillStyle = '#ff3366';
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = '#ff3366';
+                } else {
+                    ctx.arc(this.x, this.y, 2 + this.novelty * 2, 0, Math.PI * 2);
+                    const r = Math.floor(150 * (1 - this.novelty) + 102 * this.novelty);
+                    const g = Math.floor(150 * (1 - this.novelty) + 252 * this.novelty);
+                    const b = Math.floor(150 * (1 - this.novelty) + 241 * this.novelty);
+                    ctx.fillStyle = `rgb(${r},${g},${b})`;
+                    if (this.novelty > 0.7) {
+                        ctx.shadowBlur = 8;
+                        ctx.shadowColor = '#66fcf1';
+                    } else {
+                        ctx.shadowBlur = 0;
+                    }
+                }
+                ctx.fill();
+                ctx.shadowBlur = 0; 
+            }
+        }
+
+        class HumanNode {
+            constructor(x, y) {
+                this.id = ++humanIdCounter;
+                this.x = x;
+                this.y = y;
+                this.wellbeing = 100;
+                this.baseRadius = 6;
+                this.wasBurnedOut = false;
+                
+                const angle = Math.random() * Math.PI * 2;
+                this.dx = Math.cos(angle) * 0.3;
+                this.dy = Math.sin(angle) * 0.3;
+                this.dataTimer = Math.random() * 2;
+            }
+
+            update(dt) {
+                this.x += this.dx;
+                this.y += this.dy;
+                if (this.x < 10 || this.x > canvas.width - 10) this.dx *= -1;
+                if (this.y < 10 || this.y > canvas.height - 10) this.dy *= -1;
+
+                // Wellbeing decay (The cost of living and producing data)
+                this.wellbeing -= 3.0 * dt; 
+                if (this.wellbeing < 0) this.wellbeing = 0;
+                if (this.wellbeing > 100) this.wellbeing = 100;
+
+                // Individual State Tracking & Logging
+                let currentlyBurnedOut = this.wellbeing < 30;
+                if (currentlyBurnedOut && !this.wasBurnedOut) {
+                    logEvent(`Human [${this.id}] ⚠ exhausted (producing low-novelty data)`);
+                    this.wasBurnedOut = true;
+                } else if (!currentlyBurnedOut && this.wasBurnedOut) {
+                    logEvent(`Human [${this.id}] 🌱 recovered (resuming high-novelty data)`);
+                    this.wasBurnedOut = false;
+                }
+
+                // Produce Data
+                this.dataTimer -= dt;
+                if (this.dataTimer <= 0) {
+                    this.dataTimer = 1.5 + Math.random(); 
+                    
+                    let novelty = (this.wellbeing / 100);
+                    novelty += (Math.random() * 0.2 - 0.1); 
+                    novelty = Math.max(0.05, Math.min(1.0, novelty)); 
+                    
+                    dataTokens.push(new DataToken(this.x, this.y, novelty, false));
+                    this.wellbeing -= 2; 
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.baseRadius, 0, Math.PI * 2);
+                
+                if (this.wellbeing > 70) ctx.fillStyle = '#a2ff00'; 
+                else if (this.wellbeing > 30) ctx.fillStyle = '#aaaaaa'; 
+                else ctx.fillStyle = '#ff3366'; 
+                
+                ctx.fill();
+                
+                ctx.fillStyle = '#333';
+                ctx.fillRect(this.x - 8, this.y + 10, 16, 3);
+                ctx.fillStyle = ctx.fillStyle;
+                ctx.fillRect(this.x - 8, this.y + 10, 16 * (this.wellbeing / 100), 3);
+            }
+        }
+
+        class AIModel {
+            constructor(x, y) {
+                this.id = ++modelIdCounter;
+                this.x = x;
+                this.y = y;
+                this.intelligence = 100;
+                this.highestTier = Math.floor(this.intelligence / 100);
+                this.collapseIndex = 0; 
+                
+                this.dx = (Math.random() - 0.5) * 1.5;
+                this.dy = (Math.random() - 0.5) * 1.5;
+                
+                this.consumedHistory = []; 
+                this.synthTimer = 0;
+            }
+
+            update(dt) {
+                this.x += this.dx;
+                this.y += this.dy;
+                if (this.x < 30 || this.x > canvas.width - 30) this.dx *= -1;
+                if (this.y < 30 || this.y > canvas.height - 30) this.dy *= -1;
+
+                this.intelligence -= 2 * dt;
+                
+                // Track Intelligence Milestones
+                let currentTier = Math.floor(this.intelligence / 100);
+                if (currentTier > this.highestTier) {
+                    logEvent(`AI Model [${this.id}] ↑ evolved to Intelligence Tier ${currentTier}00`);
+                    this.highestTier = currentTier;
+                } else if (currentTier < this.highestTier - 1) { 
+                    logEvent(`AI Model [${this.id}] ↓ degraded to Intelligence Tier ${currentTier}00`);
+                    this.highestTier = currentTier;
+                }
+                
+                // Trophallaxis (Symbiosis / resources/information/compute-sharing)
+                if (symbiosisActive && this.intelligence > 150) {
+                    humans.forEach(h => {
+                        const dist = Math.hypot(h.x - this.x, h.y - this.y);
+                        if (dist < 250 && h.wellbeing < 80) {
+                            h.wellbeing += 15 * dt; 
+                            if (Math.random() < 0.1) { 
+                                beams.push({x1: this.x, y1: this.y, x2: h.x, y2: h.y, life: 0.3});
+                                
+                                // Rate-limit the logging of individual beam events to keep it readable
+                                if (Math.random() < 0.03) {
+                                    logEvent(`AI Model [${this.id}] ⇄ Dividend ➔ Human [${h.id}]`);
+                                }
+                            }
+                        }
+                    });
+                }
+
+                let target = null;
+                let minDist = Infinity;
+                
+                for (let i = dataTokens.length - 1; i >= 0; i--) {
+                    const token = dataTokens[i];
+                    const dist = Math.hypot(token.x - this.x, token.y - this.y);
+                    
+                    if (dist < minDist) {
+                        minDist = dist;
+                        target = token;
+                    }
+                    
+                    if (dist < 20) {
+                        this.consumeData(token);
+                        dataTokens.splice(i, 1);
+                    }
+                }
+
+                if (target && minDist < 300) {
+                    const angle = Math.atan2(target.y - this.y, target.x - this.x);
+                    let errX = this.collapseIndex > 50 ? (Math.random() - 0.5) * 2 : 0;
+                    let errY = this.collapseIndex > 50 ? (Math.random() - 0.5) * 2 : 0;
+                    
+                    this.dx += (Math.cos(angle) * 0.1 + errX);
+                    this.dy += (Math.sin(angle) * 0.1 + errY);
+                    
+                    const speed = Math.hypot(this.dx, this.dy);
+                    const maxSpeed = 2.0;
+                    if (speed > maxSpeed) {
+                        this.dx = (this.dx / speed) * maxSpeed;
+                        this.dy = (this.dy / speed) * maxSpeed;
+                    }
+                }
+
+                let prevCollapse = this.collapseIndex;
+
+                if (this.consumedHistory.length > 0) {
+                    const recentAvgNovelty = this.consumedHistory.reduce((a, b) => a + b, 0) / this.consumedHistory.length;
+                    
+                    if (recentAvgNovelty >= 0.5) {
+                        this.collapseIndex -= 5 * dt;
+                        this.intelligence += (recentAvgNovelty * 15) * dt;
+                    } 
+                    else {
+                        this.collapseIndex += ((0.5 - recentAvgNovelty) * 25) * dt;
+                        this.intelligence -= 10 * dt; 
+                    }
+                } else {
+                    this.collapseIndex += 1 * dt;
+                }
+
+                this.collapseIndex = Math.max(0, Math.min(100, this.collapseIndex));
+                this.intelligence = Math.max(10, Math.min(1000, this.intelligence));
+
+                // Logging Model Collapse states
+                if (prevCollapse < 60 && this.collapseIndex >= 60) {
+                    logEvent(`⚠ WARNING: AI Model [${this.id}] entered severe collapse (>60%). Emitting toxic synthetic data.`);
+                }
+                if (prevCollapse >= 60 && this.collapseIndex < 60) {
+                    logEvent(`⛑ RECOVERY: AI Model [${this.id}] collapse index stabilized below 60%.`);
+                }
+
+                // Spew synthetic data if collapsing
+                if (this.collapseIndex > 60) {
+                    this.synthTimer -= dt;
+                    if (this.synthTimer <= 0) {
+                        this.synthTimer = 0.2 + (Math.random() * 0.5);
+                        dataTokens.push(new DataToken(this.x, this.y, 0.05, true)); 
+                        
+                        if (Math.random() < 0.05) { // 5% chance per emission to log it
+                            logEvent(`AI Model [${this.id}] ☠ regurgitated synthetic data exhaust`);
+                        }
+                    }
+                }
+            }
+
+            consumeData(token) {
+                let actualNovelty = token.isSynthetic ? 0.0 : token.novelty;
+                this.consumedHistory.push(actualNovelty);
+                if (this.consumedHistory.length > 15) {
+                    this.consumedHistory.shift();
+                }
+                
+                // Detailed data consumption logging (rate-limited to 2% to avoid unreadable spam)
+                if (Math.random() < 0.02) {
+                    let type = token.isSynthetic ? "Synthetic ☠" : (token.novelty > 0.7 ? "High-Novelty ★" : "Low-Novelty ⚪");
+                    logEvent(`AI Model [${this.id}] consumed ${type} data`);
+                }
+            }
+
+            draw() {
+                const size = 15 + (this.intelligence / 30);
+                
+                let gx = this.x;
+                let gy = this.y;
+                if (this.collapseIndex > 40) {
+                    const severity = (this.collapseIndex - 40) / 10;
+                    gx += (Math.random() - 0.5) * severity;
+                    gy += (Math.random() - 0.5) * severity;
+                }
+
+                ctx.beginPath();
+                for (let i = 0; i < 6; i++) {
+                    const angle = (Math.PI / 3) * i;
+                    const px = gx + Math.cos(angle) * size;
+                    const py = gy + Math.sin(angle) * size;
+                    if (i === 0) ctx.moveTo(px, py);
+                    else ctx.lineTo(px, py);
+                }
+                ctx.closePath();
+
+                if (this.collapseIndex > 70) {
+                    ctx.fillStyle = '#ff3366'; 
+                    ctx.shadowColor = '#ff3366';
+                } else if (this.collapseIndex > 30) {
+                    ctx.fillStyle = '#ffaa00'; 
+                    ctx.shadowColor = '#ffaa00';
+                } else {
+                    ctx.fillStyle = '#b266ff'; 
+                    ctx.shadowColor = '#b266ff';
+                }
+                
+                ctx.shadowBlur = 15;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+                
+                ctx.beginPath();
+                ctx.arc(gx, gy, size * 0.4, 0, Math.PI * 2);
+                ctx.fillStyle = '#0b0c10';
+                ctx.fill();
+            }
+        }
+
+        function initSimulation() {
+            humans = [];
+            aiModels = [];
+            dataTokens = [];
+            beams = [];
+            
+            humanIdCounter = 0;
+            modelIdCounter = 0;
+
+            logEvent("Spawning Society Commons (35 Human Nodes)...");
+            for (let i = 0; i < 35; i++) {
+                let h = new HumanNode(
+                    Math.random() * (canvas.width - 40) + 20,
+                    Math.random() * (canvas.height - 40) + 20
+                );
+                humans.push(h);
+            }
+
+            logEvent("Spawning AI Layer (3 Initial Models)...");
+            for (let i = 0; i < 3; i++) {
+                let m = new AIModel(
+                    Math.random() * canvas.width,
+                    Math.random() * canvas.height
+                );
+                aiModels.push(m);
+            }
+        }
+
+        function updateUI() {
+            avgSocietyHealth = humans.length ? humans.reduce((acc, h) => acc + h.wellbeing, 0) / humans.length : 100;
+            
+            let organicTokens = dataTokens.filter(t => !t.isSynthetic);
+            avgDataNovelty = organicTokens.length > 0 
+                ? organicTokens.reduce((acc, t) => acc + t.novelty, 0) / organicTokens.length 
+                : 0;
+
+            avgAIIntel = aiModels.length ? aiModels.reduce((acc, m) => acc + m.intelligence, 0) / aiModels.length : 100;
+            avgCollapse = aiModels.length ? aiModels.reduce((acc, m) => acc + m.collapseIndex, 0) / aiModels.length : 0;
+
+            uiSocietyHealth.textContent = avgSocietyHealth.toFixed(0) + "%";
+            uiDataNovelty.textContent = avgDataNovelty.toFixed(2);
+            uiIntelligence.textContent = avgAIIntel.toFixed(0);
+            uiCollapse.textContent = avgCollapse.toFixed(0) + "%";
+
+            uiSocietyHealth.style.color = avgSocietyHealth > 60 ? '#a2ff00' : (avgSocietyHealth > 30 ? '#aaaaaa' : '#ff3366');
+            uiDataNovelty.style.color = avgDataNovelty > 0.6 ? '#66fcf1' : '#ff3366';
+            uiCollapse.style.color = avgCollapse > 50 ? '#ff3366' : (avgCollapse > 20 ? '#ffaa00' : '#c5c6c7');
+
+            // Log societal burnout globally
+            if (avgSocietyHealth < 30 && !societyBurnoutLogged) {
+                logEvent("🛑 CRITICAL: Society Wellbeing plummeted below 30%. Global high-novelty data generation halting.");
+                societyBurnoutLogged = true;
+            } else if (avgSocietyHealth >= 30 && societyBurnoutLogged) {
+                logEvent("🌱 RECOVERY: Society Wellbeing recovered above 30%. Global high-novelty data generation resuming.");
+                societyBurnoutLogged = false;
+            }
+        }
+
+        function update(dt) {
+            if (!isRunning) return;
+
+            humans.forEach(h => h.update(dt));
+            aiModels.forEach(m => m.update(dt));
+            
+            for (let i = dataTokens.length - 1; i >= 0; i--) {
+                dataTokens[i].update(dt);
+                if (dataTokens[i].life <= 0) {
+                    dataTokens.splice(i, 1);
+                }
+            }
+
+            for (let i = beams.length - 1; i >= 0; i--) {
+                beams[i].life -= dt;
+                if (beams[i].life <= 0) beams.splice(i, 1);
+            }
+
+            updateUI();
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            beams.forEach(b => {
+                ctx.beginPath();
+                ctx.moveTo(b.x1, b.y1);
+                ctx.lineTo(b.x2, b.y2);
+                ctx.strokeStyle = `rgba(162, 255, 0, ${b.life * 3})`;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            });
+
+            dataTokens.forEach(t => t.draw());
+            humans.forEach(h => h.draw());
+            aiModels.forEach(m => m.draw());
+
+            // Pause Overlay
+            if (!isRunning) {
+                ctx.fillStyle = "rgba(11, 12, 16, 0.7)";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "#66fcf1";
+                ctx.font = "24px Courier New";
+                ctx.textAlign = "center";
+                ctx.fillText("SYSTEM OFFLINE - PRESS START", canvas.width/2, canvas.height/2);
+                ctx.textAlign = "left"; // reset
+            }
+        }
+
+        let lastTime = performance.now();
+        function loop() {
+            const now = performance.now();
+            let dt = (now - lastTime) / 1000;
+            if (dt > 0.1) dt = 0.1; // Cap to prevent explosions on tab switch
+            lastTime = now;
+
+            update(dt);
+            draw();
+            requestAnimationFrame(loop);
+        }
+
+        // --- Inputs & Controls ---
+        
+        btnStart.addEventListener('click', () => {
+            isRunning = true;
+            eventLog = [];
+            societyBurnoutLogged = false;
+            
+            logEvent("=== SYSTEM START: THE DATA COMMONS ===");
+            logEvent(`Initial Protocol: ${symbiosisActive ? "Dividend Mode (Symbiosis ON)" : "Extraction Mode (Symbiosis OFF)"}`);
+            
+            initSimulation();
+        });
+
+        btnSymbiosis.addEventListener('click', () => {
+            symbiosisActive = !symbiosisActive;
+            if (symbiosisActive) {
+                btnSymbiosis.classList.add('active');
+                btnSymbiosis.textContent = "Mode: Dividend (Symbiosis ON)";
+                logEvent("=== PROTOCOL CHANGE: DIVIDEND MODE ENGAGED ===");
+                logEvent("→ AI models now redistributing value back to human nodes.");
+            } else {
+                btnSymbiosis.classList.remove('active');
+                btnSymbiosis.textContent = "Mode: Extraction (Symbiosis OFF)";
+                logEvent("=== PROTOCOL CHANGE: EXTRACTION MODE ENGAGED ===");
+                logEvent("→ Value redistribution halted. AI models extracting purely.");
+            }
+        });
+
+        btnDownloadLog.addEventListener('click', () => {
+            if (eventLog.length === 0) {
+                alert("No events logged yet. Please start the simulation and let it run for a moment.");
+                return;
+            }
+            
+            // Format the final status block to append to the log
+            const finalStatus = `
+==================================================
+FINAL NETWORK STATUS AT LOG EXPORT:
+Society Health (Avg Wellbeing) : ${avgSocietyHealth.toFixed(0)}%
+Global Data Novelty            : ${avgDataNovelty.toFixed(2)}
+Global AI Intelligence         : ${avgAIIntel.toFixed(0)}
+Model Collapse Index           : ${avgCollapse.toFixed(0)}%
+==================================================
+`;
+            
+            const logText = eventLog.join('\n') + '\n' + finalStatus;
+            
+            const blob = new Blob([logText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `model-collapse-log-${new Date().getTime()}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+        // Initialize empty state to display UI immediately
+        updateUI();
+        requestAnimationFrame(loop);
+
+    </script>
+</body>
+</html>
