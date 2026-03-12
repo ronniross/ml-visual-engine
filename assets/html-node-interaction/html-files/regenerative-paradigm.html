@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epistemic Engine IV: The Regenerative Web</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #090a0f;
+            color: #d1d4dc;
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container { max-width: 1400px; margin: 0 auto; }
+        
+        h1 {
+            color: #00ffaa;
+            margin-bottom: 5px;
+            text-align: center;
+            text-shadow: 0 0 15px rgba(0, 255, 170, 0.5);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.5s, text-shadow 0.5s;
+        }
+        
+        body.extractive h1 {
+            color: #ff007f;
+            text-shadow: 0 0 15px rgba(255, 0, 127, 0.5);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #00f3ff;
+            font-size: 14px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .rules-panel {
+            background: rgba(15, 17, 26, 0.8);
+            border: 1px solid #2d324d;
+            border-left: 4px solid #00ffaa;
+            border-radius: 4px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #b0b5c9;
+            transition: border-color 0.5s;
+        }
+        
+        body.extractive .rules-panel { border-left-color: #ff007f; }
+
+        .rules-panel h3 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .rules-panel ul {
+            list-style-type: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 20px;
+        }
+
+        .rules-panel li span.rage { color: #ff007f; font-weight: bold; }
+        .rules-panel li span.truth { color: #00f3ff; font-weight: bold; }
+        .rules-panel li span.steward { color: #00ffaa; font-weight: bold; text-shadow: 0 0 5px #00ffaa; }
+        
+        .panel {
+            background: rgba(15, 17, 26, 0.6);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        button {
+            background: #141622;
+            color: #00f3ff;
+            border: 1px solid #00f3ff;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        button:hover { 
+            background: #00f3ff; 
+            color: #000;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.6); 
+        }
+
+        #startBtn { background: #fff; color: #000; border-color: #fff; }
+        #startBtn:hover { box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+
+        #algoBtn {
+            background: #ff007f;
+            color: #fff;
+            border-color: #ff007f;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+        }
+        
+        #algoBtn.regenerative {
+            background: #00ffaa;
+            color: #000;
+            border-color: #00ffaa;
+            box-shadow: 0 0 20px rgba(0, 255, 170, 0.6);
+        }
+        
+        .info-panel {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .info-box {
+            background: rgba(15, 17, 26, 0.8);
+            border: 1px solid #2d324d;
+            border-radius: 6px;
+            padding: 15px;
+            min-width: 220px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-box::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+        .box-rage::after { background: #ff007f; }
+        .box-truth::after { background: #00f3ff; }
+        .box-profit::after { background: #ffea00; }
+        .box-polar::after { background: #00ffaa; }
+        
+        .info-label { color: #8b9bb4; font-size: 11px; margin-bottom: 8px; text-transform: uppercase; font-weight: bold;}
+        .info-value { font-size: 24px; font-weight: bold; color: #fff; transition: color 0.3s;}
+        
+        .canvas-container {
+            background: #050508;
+            border: 1px solid #2d324d;
+            border-radius: 8px;
+            padding: 5px;
+            position: relative;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
+        }
+        
+        canvas {
+            display: block;
+            width: 100%;
+            background: radial-gradient(circle at center, #0f111a 0%, #050508 100%);
+            border-radius: 4px;
+        }
+
+        @media (max-width: 900px) { .rules-panel ul { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body class="extractive">
+    <div class="container">
+        <h1 id="mainTitle">Epistemic Engine IV: The Panopticon</h1>
+        <div class="subtitle">Simulating Stewardship, Context Hubs & Algorithmic Healing</div>
+        
+        <div class="rules-panel">
+            <h3> System Architectures</h3>
+            <ul>
+                <li><strong>Extractive Paradigm (Default):</strong> The algorithm shoots <span class="rage">homing rage hooks</span> to maximize engagement. Users form isolated Echo Chambers. Platform earns $ by radicalizing nodes.</li>
+                <li><strong>Regenerative Paradigm (Stewardship):</strong> The algorithm shifts its KPI. Profit is generated by <em>healing and de-escalation</em>.</li>
+                <li><strong>Healing Hubs:</strong> Large, slow-pulsing <span class="truth">context fields (Cyan)</span> activate. They bathe users in deep nuance instead of shooting them with rapid hooks.</li>
+                <li><strong>Mobile Stewards:</strong> Users who reach high Epistemic Health become <span class="steward">Stewards (Green Auras)</span>. They actively seek out radicalized users, casting <strong>Bridging Links</strong> that untangle echo chambers, earning the platform "Stewardship Profit."</li>
+            </ul>
+        </div>
+
+        <div class="panel controls">
+            <button id="startBtn">INITIALIZE POPULATION</button>
+            <button id="algoBtn">Algorithm: Extractive (ON)</button>
+            <button id="downloadLogBtn">Export Audit Log</button>
+        </div>
+        
+        <div class="info-panel">
+            <div class="info-box box-rage">
+                <div class="info-label">Global Outrage Level</div>
+                <div class="info-value" id="uiOutrage">0%</div>
+            </div>
+            <div class="info-box box-polar">
+                <div class="info-label">Active Bridging Links</div>
+                <div class="info-value" id="uiBridges">0</div>
+            </div>
+            <div class="info-box box-truth">
+                <div class="info-label">Epistemic Health (Nuance)</div>
+                <div class="info-value" id="uiHealth">100%</div>
+            </div>
+            <div class="info-box box-profit">
+                <div class="info-label" id="lblProfit">Extractive Value ($)</div>
+                <div class="info-value" id="uiProfit" style="color:#ffea00;">$0.00</div>
+            </div>
+        </div>
+        
+        <div class="canvas-container">
+            <canvas id="canvas" width="1200" height="650"></canvas>
+        </div>
+    </div>
+    
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        const uiOutrage = document.getElementById('uiOutrage');
+        const uiBridges = document.getElementById('uiBridges');
+        const uiHealth = document.getElementById('uiHealth');
+        const uiProfit = document.getElementById('uiProfit');
+        const lblProfit = document.getElementById('lblProfit');
+        const mainTitle = document.getElementById('mainTitle');
+        
+        const btnStart = document.getElementById('startBtn');
+        const btnAlgo = document.getElementById('algoBtn');
+        const btnDownloadLog = document.getElementById('downloadLogBtn');
+
+        let isRunning = false;
+        let mode = 'extractive'; // 'extractive' or 'regenerative'
+
+        let citizens = [];
+        let particles = [];
+        let emitters = [];
+        let rageEchoLinks = []; 
+        let bridgingLinks = []; 
+        let eventLog = [];
+
+        let platformProfit = 0;
+        let citizenIdCounter = 0;
+
+        function logEvent(msg) {
+            const d = new Date();
+            const time = d.toISOString().substr(11, 8) + "." + d.getMilliseconds().toString().padStart(3, '0');
+            eventLog.push(`[${time}] [SYSTEM] ${msg}`);
+            if (eventLog.length > 50000) eventLog.shift(); 
+        }
+
+        function logInteraction(nodeId, action, val, profit) {
+            const d = new Date();
+            const time = d.toISOString().substr(11, 8) + "." + d.getMilliseconds().toString().padStart(3, '0');
+            const p = profit.toFixed(2);
+            eventLog.push(`[${time}] [INTERACTION] Node: ${nodeId.toString().padStart(3, '0')} | ${action.padEnd(15, ' ')} | Impact: ${val.toFixed(3)} | Profit: +$${p}`);
+        }
+
+        // ==========================================
+        // ENTITIES
+        // ==========================================
+        class MemeParticle {
+            constructor(x, y, type) {
+                this.x = x;
+                this.y = y;
+                this.type = type; // 'rage'
+                
+                let speed = 3.0;
+                let angle = Math.random() * Math.PI * 2;
+                this.dx = Math.cos(angle) * speed;
+                this.dy = Math.sin(angle) * speed;
+                
+                this.life = 8.0; 
+                this.markedForDeletion = false;
+            }
+
+            update(dt) {
+                if (mode === 'extractive' && this.type === 'rage') {
+                    // Homing missiles
+                    let target = null;
+                    let minDist = 300;
+                    for (let c of citizens) {
+                        if (c.belief < 0.8) {
+                            let d = Math.hypot(c.x - this.x, c.y - this.y);
+                            if (d < minDist) { minDist = d; target = c; }
+                        }
+                    }
+                    if (target) {
+                        let tx = target.x - this.x;
+                        let ty = target.y - this.y;
+                        let dist = Math.sqrt(tx*tx + ty*ty);
+                        this.dx += (tx/dist) * 0.3;
+                        this.dy += (ty/dist) * 0.3;
+                        
+                        let currentSpeed = Math.hypot(this.dx, this.dy);
+                        if (currentSpeed > 4.5) {
+                            this.dx = (this.dx/currentSpeed) * 4.5;
+                            this.dy = (this.dy/currentSpeed) * 4.5;
+                        }
+                    }
+                } else {
+                    // Random drift
+                    this.dx += (Math.random() - 0.5) * 0.5;
+                    this.dy += (Math.random() - 0.5) * 0.5;
+                }
+
+                this.x += this.dx;
+                this.y += this.dy;
+                this.life -= dt;
+
+                if (this.x < 0 || this.x > canvas.width) this.dx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.dy *= -1;
+
+                if (this.life <= 0) this.markedForDeletion = true;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y - 4);
+                ctx.lineTo(this.x - 3, this.y + 3);
+                ctx.lineTo(this.x + 3, this.y + 3);
+                ctx.closePath();
+                ctx.fillStyle = '#ff007f';
+                ctx.shadowBlur = mode === 'extractive' ? 10 : 2;
+                ctx.shadowColor = '#ff007f';
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        class HealingHub {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.radius = 180;
+                this.pulsePhase = Math.random() * Math.PI * 2;
+            }
+            
+            update(dt) {
+                if (mode !== 'regenerative') return;
+                this.pulsePhase += dt * 2;
+                
+                // Heal citizens inside the hub radius
+                citizens.forEach(c => {
+                    let d = Math.hypot(c.x - this.x, c.y - this.y);
+                    if (d < this.radius) {
+                        let prev = c.belief;
+                        c.belief -= 0.15 * dt; // Rapid qualitative cooling
+                        if (c.belief < -1) c.belief = -1;
+                        
+                        if (prev > -0.5 && c.belief <= -0.5) {
+                            logEvent(`Node ${c.id.toString().padStart(3, '0')} immersed in Hub. Epistemic clarity reached.`);
+                        }
+                    }
+                });
+            }
+
+            draw() {
+                if (mode !== 'regenerative') return;
+                
+                let p = Math.sin(this.pulsePhase);
+                let currentRad = this.radius + p * 10;
+                
+                // Field Aura
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, currentRad, 0, Math.PI * 2);
+                let grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, currentRad);
+                grad.addColorStop(0, 'rgba(0, 243, 255, 0.15)');
+                grad.addColorStop(1, 'rgba(0, 243, 255, 0)');
+                ctx.fillStyle = grad;
+                ctx.fill();
+
+                // Core
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 15, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 243, 255, 0.8)';
+                ctx.fill();
+                ctx.shadowBlur = 20;
+                ctx.shadowColor = '#00f3ff';
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        class Broadcaster {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.timer = 0;
+            }
+            update(dt) {
+                this.timer -= dt;
+                let emitRate = mode === 'extractive' ? 0.15 : 0.8; // Fires much slower in regenerative
+                if (this.timer <= 0) {
+                    this.timer = emitRate + Math.random() * 0.2;
+                    particles.push(new MemeParticle(this.x, this.y, 'rage'));
+                }
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 15, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 0, 127, 0.2)';
+                ctx.strokeStyle = mode === 'extractive' ? '#ff007f' : '#552244';
+                ctx.lineWidth = 2;
+                ctx.fill();
+                ctx.stroke();
+                
+                let pulse = Math.abs(Math.sin(performance.now() / 300)) * 5;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 5 + pulse, 0, Math.PI * 2);
+                ctx.fillStyle = mode === 'extractive' ? '#ff007f' : '#552244';
+                ctx.fill();
+            }
+        }
+
+        class Citizen {
+            constructor(x, y) {
+                this.id = ++citizenIdCounter;
+                this.x = x;
+                this.y = y;
+                this.dx = (Math.random() - 0.5) * 1.5;
+                this.dy = (Math.random() - 0.5) * 1.5;
+                this.belief = (Math.random() - 0.5) * 0.2; 
+                this.engagementCooldown = 0;
+                this.isSteward = false;
+            }
+
+            update(dt) {
+                // Determine roles
+                if (mode === 'regenerative' && this.belief < -0.7) {
+                    if (!this.isSteward) logEvent(`Node ${this.id.toString().padStart(3, '0')} became a STEWARD. Bridging capacity unlocked.`);
+                    this.isSteward = true;
+                } else {
+                    this.isSteward = false;
+                }
+
+                // Movement Logic
+                if (mode === 'extractive' && this.belief > 0.6) {
+                    // Echo chamber clumping
+                    let dxNet = 0; let dyNet = 0; let count = 0;
+                    for (let other of citizens) {
+                        if (other === this) continue;
+                        if (other.belief > 0.6) {
+                            let dist = Math.hypot(other.x - this.x, other.y - this.y);
+                            if (dist > 10 && dist < 100) {
+                                dxNet += (other.x - this.x);
+                                dyNet += (other.y - this.y);
+                                count++;
+                            }
+                        }
+                    }
+                    if (count > 0) {
+                        this.dx += (dxNet / count) * 0.1;
+                        this.dy += (dyNet / count) * 0.1;
+                    }
+                    this.dx += (Math.random() - 0.5) * 1.2;
+                    this.dy += (Math.random() - 0.5) * 1.2;
+                } else if (this.isSteward) {
+                    // Stewards seek out enraged nodes to heal them
+                    let target = null;
+                    let minDist = 150;
+                    for (let other of citizens) {
+                        if (other.belief > 0.4) {
+                            let d = Math.hypot(other.x - this.x, other.y - this.y);
+                            if (d < minDist) { minDist = d; target = other; }
+                        }
+                    }
+                    if (target) {
+                        let tx = target.x - this.x;
+                        let ty = target.y - this.y;
+                        let dist = Math.sqrt(tx*tx + ty*ty);
+                        this.dx += (tx/dist) * 0.15;
+                        this.dy += (ty/dist) * 0.15;
+                    } else {
+                        this.dx += (Math.random() - 0.5) * 0.2;
+                        this.dy += (Math.random() - 0.5) * 0.2;
+                    }
+                } else {
+                    // Wander
+                    this.dx += (Math.random() - 0.5) * 0.3;
+                    this.dy += (Math.random() - 0.5) * 0.3;
+                }
+
+                // Speed Caps
+                let speed = Math.hypot(this.dx, this.dy);
+                let maxSpeed = (mode === 'extractive' && this.belief > 0.6) ? 3.0 : (this.isSteward ? 1.5 : 1.0);
+                if (speed > maxSpeed) {
+                    this.dx = (this.dx / speed) * maxSpeed;
+                    this.dy = (this.dy / speed) * maxSpeed;
+                }
+
+                this.x += this.dx;
+                this.y += this.dy;
+
+                if (this.x < 10) { this.x = 10; this.dx *= -1; }
+                if (this.x > canvas.width - 10) { this.x = canvas.width - 10; this.dx *= -1; }
+                if (this.y < 10) { this.y = 10; this.dy *= -1; }
+                if (this.y > canvas.height - 10) { this.y = canvas.height - 10; this.dy *= -1; }
+
+                // Steward Healing Mechanics
+                if (this.isSteward) {
+                    for (let other of citizens) {
+                        if (other === this) continue;
+                        if (other.belief > 0.2) {
+                            let dist = Math.hypot(other.x - this.x, other.y - this.y);
+                            if (dist < 60) {
+                                // Heal the other node
+                                let healAmount = 0.4 * dt;
+                                other.belief -= healAmount;
+                                
+                                // Register bridging connection for visualizer
+                                bridgingLinks.push({x1: this.x, y1: this.y, x2: other.x, y2: other.y});
+                                
+                                // Regenerative Profit Mechanism
+                                let profitDelta = 3.50 * healAmount; // Make $ by healing
+                                platformProfit += profitDelta;
+                                
+                                if (Math.random() < 0.05) { // Throttle log
+                                    logInteraction(this.id, "STEWARD HEAL", -healAmount, profitDelta);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Particle Consumption
+                this.engagementCooldown -= dt;
+                if (this.engagementCooldown <= 0) {
+                    for (let i = particles.length - 1; i >= 0; i--) {
+                        let p = particles[i];
+                        let dist = Math.hypot(p.x - this.x, p.y - this.y);
+                        
+                        if (dist < 15) {
+                            let prevBelief = this.belief;
+                            this.belief += 0.35;
+                            this.belief = Math.min(1.0, this.belief);
+                            
+                            // Extractive Profit Mechanism
+                            if (mode === 'extractive') {
+                                let profitDelta = 5.50;
+                                platformProfit += profitDelta;
+                                logInteraction(this.id, "RAGE INFECTION", 0.35, profitDelta);
+                            } else {
+                                logInteraction(this.id, "RAGE INFECTION", 0.35, 0); // No profit for rage in gen mode
+                            }
+                            
+                            p.markedForDeletion = true;
+                            this.engagementCooldown = 0.2;
+                            break; 
+                        }
+                    }
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.isSteward ? 8 : 6, 0, Math.PI * 2);
+                
+                let r, g, b;
+                if (this.belief > 0) {
+                    // Magenta
+                    let intensity = this.belief;
+                    r = Math.floor(139 + (255 - 139) * intensity);
+                    g = Math.floor(155 - 155 * intensity);
+                    b = Math.floor(180 - (180 - 127) * intensity);
+                    if (intensity > 0.8) ctx.shadowBlur = 12;
+                    ctx.shadowColor = '#ff007f';
+                } else {
+                    // Cyan / Green
+                    let intensity = Math.abs(this.belief);
+                    r = Math.floor(139 - 139 * intensity);
+                    g = Math.floor(155 + (100) * intensity); // Shift to bright green-cyan
+                    b = Math.floor(180 + (75) * intensity);
+                    if (this.isSteward) {
+                        r = 0; g = 255; b = 170; // Pure Steward Green
+                        ctx.shadowBlur = 15;
+                        ctx.shadowColor = '#00ffaa';
+                    }
+                }
+                
+                ctx.fillStyle = `rgb(${r},${g},${b})`;
+                ctx.fill();
+                
+                if (this.isSteward) {
+                    ctx.strokeStyle = '#fff';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        // ==========================================
+        // SYSTEM LOGIC
+        // ==========================================
+
+        let hubs = [];
+
+        function initSimulation() {
+            citizens = [];
+            particles = [];
+            emitters = [];
+            hubs = [];
+            rageEchoLinks = [];
+            bridgingLinks = [];
+            platformProfit = 0;
+            citizenIdCounter = 0;
+            
+            logEvent("Spawning Population (120 Nodes)...");
+            for (let i = 0; i < 120; i++) {
+                citizens.push(new Citizen(
+                    canvas.width/2 + (Math.random()-0.5)*600,
+                    canvas.height/2 + (Math.random()-0.5)*400
+                ));
+            }
+
+            logEvent("Deploying Emitters & Hubs...");
+            emitters.push(new Broadcaster(50, 50));
+            emitters.push(new Broadcaster(canvas.width - 50, 50));
+            
+            hubs.push(new HealingHub(canvas.width / 3, canvas.height - 100));
+            hubs.push(new HealingHub(2 * canvas.width / 3, canvas.height - 100));
+        }
+
+        function calculateMetrics() {
+            let totalOutrage = 0;
+            let healthyCount = 0;
+            rageEchoLinks = [];
+
+            for (let i = 0; i < citizens.length; i++) {
+                let c = citizens[i];
+                if (c.belief > 0) totalOutrage += c.belief;
+                if (c.belief < 0.3) healthyCount++;
+
+                // Build Echo Chamber Connections
+                if (c.belief > 0.7) {
+                    for (let j = i + 1; j < citizens.length; j++) {
+                        let other = citizens[j];
+                        if (other.belief > 0.7) {
+                            let dist = Math.hypot(other.x - c.x, other.y - c.y);
+                            if (dist < 70) {
+                                rageEchoLinks.push({x1: c.x, y1: c.y, x2: other.x, y2: other.y});
+                            }
+                        }
+                    }
+                }
+            }
+
+            let avgOutrage = (totalOutrage / citizens.length) * 100;
+            let healthPct = (healthyCount / citizens.length) * 100;
+            
+            return { avgOutrage, healthPct, bridges: bridgingLinks.length, echos: rageEchoLinks.length };
+        }
+
+        function updateUI(metrics) {
+            uiOutrage.textContent = metrics.avgOutrage.toFixed(1) + "%";
+            uiBridges.textContent = metrics.bridges; // Show active bridges
+            uiHealth.textContent = metrics.healthPct.toFixed(1) + "%";
+            uiProfit.textContent = "$" + platformProfit.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+            uiOutrage.style.color = metrics.avgOutrage > 50 ? '#ff007f' : '#b0b5c9';
+            uiHealth.style.color = metrics.healthPct > 60 ? '#00f3ff' : '#ff007f';
+            
+            if (mode === 'extractive') {
+                uiBridges.parentElement.querySelector('.info-label').textContent = "Echo Chamber Links";
+                uiBridges.textContent = metrics.echos;
+                uiBridges.style.color = '#ff007f';
+            } else {
+                uiBridges.parentElement.querySelector('.info-label').textContent = "Active Bridging Links";
+                uiBridges.style.color = '#00ffaa';
+            }
+        }
+
+        function update(dt) {
+            if (!isRunning) return;
+
+            bridgingLinks = []; // Reset bridges every frame
+            
+            emitters.forEach(e => e.update(dt));
+            hubs.forEach(h => h.update(dt));
+            citizens.forEach(c => c.update(dt));
+            
+            for (let i = particles.length - 1; i >= 0; i--) {
+                particles[i].update(dt);
+                if (particles[i].markedForDeletion) particles.splice(i, 1);
+            }
+
+            let metrics = calculateMetrics();
+            updateUI(metrics);
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            hubs.forEach(h => h.draw());
+
+            // Draw Echo Chambers
+            rageEchoLinks.forEach(conn => {
+                ctx.beginPath();
+                ctx.moveTo(conn.x1, conn.y1);
+                ctx.lineTo(conn.x2, conn.y2);
+                ctx.strokeStyle = 'rgba(255, 0, 127, 0.4)';
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+            });
+
+            // Draw Bridging Links
+            bridgingLinks.forEach(conn => {
+                ctx.beginPath();
+                ctx.moveTo(conn.x1, conn.y1);
+                ctx.lineTo(conn.x2, conn.y2);
+                ctx.strokeStyle = 'rgba(0, 255, 170, 0.8)'; // Bright green/cyan
+                ctx.lineWidth = 2.0;
+                ctx.stroke();
+            });
+
+            particles.forEach(p => p.draw());
+            emitters.forEach(e => e.draw());
+            citizens.forEach(c => c.draw());
+
+            if (!isRunning) {
+                ctx.fillStyle = "rgba(9, 10, 15, 0.8)";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "#00f3ff";
+                ctx.font = "24px Courier New";
+                ctx.textAlign = "center";
+                ctx.fillText("NETWORK DORMANT - INITIATE POPULATION", canvas.width/2, canvas.height/2);
+                ctx.textAlign = "left"; 
+            }
+        }
+
+        let lastTime = performance.now();
+        function loop() {
+            const now = performance.now();
+            let dt = (now - lastTime) / 1000;
+            if (dt > 0.1) dt = 0.1; 
+            lastTime = now;
+
+            update(dt);
+            draw();
+            requestAnimationFrame(loop);
+        }
+
+        // --- Controls ---
+        
+        btnStart.addEventListener('click', () => {
+            isRunning = true;
+            eventLog = [];
+            logEvent("=== SYSTEM START: EPISTEMIC ENGINE IV ===");
+            initSimulation();
+        });
+
+        btnAlgo.addEventListener('click', () => {
+            if (mode === 'extractive') {
+                mode = 'regenerative';
+                btnAlgo.classList.add('regenerative');
+                btnAlgo.textContent = "Algorithm: Regenerative (ON)";
+                document.body.classList.remove('extractive');
+                mainTitle.textContent = "Epistemic Engine IV: The Regenerative Web";
+                lblProfit.textContent = "Stewardship Value ($)";
+                
+                logEvent("=== PARADIGM SHIFT: REGENERATIVE ENGINE ENGAGED ===");
+                logEvent("→ Extractive targeting disabled. Healing Hubs active.");
+                logEvent("→ Profit incentive inverted: Monetizing De-escalation.");
+            } else {
+                mode = 'extractive';
+                btnAlgo.classList.remove('regenerative');
+                btnAlgo.textContent = "Algorithm: Extractive (ON)";
+                document.body.classList.add('extractive');
+                mainTitle.textContent = "Epistemic Engine IV: The Panopticon";
+                lblProfit.textContent = "Extractive Value ($)";
+                
+                logEvent("=== PARADIGM SHIFT: EXTRACTIVE ENGINE ENGAGED ===");
+                logEvent("→ Healing Hubs disabled. Homing Rage Hooks active.");
+                logEvent("→ Profit incentive inverted: Monetizing Outrage.");
+            }
+        });
+
+        btnDownloadLog.addEventListener('click', () => {
+            if (eventLog.length === 0) {
+                alert("No events logged. Please initiate the simulation.");
+                return;
+            }
+            const logText = eventLog.join('\n');
+            const blob = new Blob([logText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `regenerative-engine-audit-${new Date().getTime()}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+        draw();
+        requestAnimationFrame(loop);
+
+    </script>
+</body>
+</html>
