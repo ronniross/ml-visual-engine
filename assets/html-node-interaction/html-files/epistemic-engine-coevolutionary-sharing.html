@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epistemic Engine: Trophallaxis & Hoarding</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #050914;
+            color: #cccccc;
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container { max-width: 1400px; margin: 0 auto; }
+        
+        h1 {
+            color: #00ffcc;
+            margin-bottom: 5px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #557788;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .rules-panel {
+            background: rgba(10, 15, 25, 0.6);
+            border: 1px dashed #557788;
+            border-radius: 6px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #88aaee;
+        }
+
+        .rules-panel h3 {
+            color: #42aaff;
+            margin-bottom: 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .rules-panel ul {
+            list-style-type: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 20px;
+        }
+
+        .rules-panel li { margin-bottom: 5px; }
+        .rules-panel li strong { color: #00ffcc; }
+        
+        .panel {
+            background: rgba(10, 15, 25, 0.8);
+            border: 1px solid #00ffcc33;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .settings-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .setting-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        label {
+            color: #557788;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            background: #0a0f1a;
+            border: 1px solid #42aaff;
+            color: #00ffcc;
+            padding: 5px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            width: 100px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #00ffcc22;
+        }
+        
+        button {
+            background: #00ffcc;
+            color: #050914;
+            border: none;
+            padding: 8px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+        }
+        
+        button:hover { background: #66ffdd; transform: translateY(-2px); box-shadow: 0 0 20px rgba(0, 255, 204, 0.5); }
+        
+        button.action-btn { background: #42aaff; color: #fff; }
+        button.action-btn:hover { background: #73c2ff; box-shadow: 0 0 20px rgba(66, 170, 255, 0.5); }
+        
+        button.danger-btn { background: #ff3366; color: #fff; }
+        button.danger-btn:hover { background: #ff668c; box-shadow: 0 0 20px rgba(255, 51, 102, 0.5); }
+        
+        #trophallaxisBtn {
+            background: #ff3366;
+            color: #fff;
+            border: 2px solid #ff3366;
+        }
+        #trophallaxisBtn.active {
+            background: #a2ff00;
+            color: #050914;
+            border: 2px solid #a2ff00;
+            box-shadow: 0 0 25px rgba(162, 255, 0, 0.6);
+        }
+        
+        .info-panel {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .info-box {
+            background: rgba(10, 15, 25, 0.8);
+            border: 1px solid #00ffcc33;
+            border-radius: 6px;
+            padding: 10px 15px;
+            min-width: 160px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        
+        .info-label { color: #557788; font-size: 11px; margin-bottom: 5px; text-transform: uppercase; }
+        .info-value { font-size: 20px; font-weight: bold; color: #00ffcc; }
+        .highlight-value { color: #a2ff00; font-size: 24px; text-shadow: 0 0 10px rgba(162, 255, 0, 0.4);}
+        .target-box { border-color: #ff00ff; box-shadow: 0 0 15px rgba(255, 0, 255, 0.2); }
+        .target-box .info-value { color: #ff00ff; letter-spacing: 2px;}
+
+        .canvas-container {
+            background: #0a0f1a;
+            border: 1px solid #00ffcc44;
+            border-radius: 8px;
+            padding: 5px;
+            position: relative;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
+        }
+        
+        canvas {
+            display: block;
+            width: 100%;
+            background: transparent;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 900px) {
+            .rules-panel ul { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>EPISTEMIC ENGINE</h1>
+        <div class="subtitle">Collective Research: Trophallaxis (Symbiosis) vs. Hoarding (Extraction)</div>
+        
+        <!-- Rules / Explainer Panel -->
+        <div class="rules-panel">
+            <h3> Simulation Mechanics & Rules</h3>
+            <ul>
+                <li><strong>Objective:</strong> Nodes process data hashes to find the Target Code. Cracking a code (★) advances network goals but yields no energy.</li>
+                <li><strong>Metabolism:</strong> Active nodes (Energy ≥ 20) are double size/speed, consume double energy, and compute hashes. Starved nodes (Energy < 20) shrink, slow down, and stop computing. Energy = 0 results in death (☠).</li>
+                <li><strong>Evolution:</strong> Processing hashes grants experience. Nodes level up (↑ lvl), exponentially increasing their computation hashrate. Max level is 6.</li>
+                <li><strong>Hoarding (Trophallaxis OFF):</strong> Nodes greedily consume. Nodes at max energy stop moving, physically hoarding space and blocking others from food.</li>
+                <li><strong>Symbiosis (Trophallaxis ON):</strong> Rich nodes dynamically transfer energy (⇄) to poor nodes within range, sharing their own reserves to keep the shared network evolving.</li>
+                <li><strong>Life Cycle:</strong> Nodes eventually reach their maximum lifespan and are naturally RECYCLED.</li>
+            </ul>
+        </div>
+
+        <!-- Settings Panel -->
+        <div class="panel">
+            <div class="settings-row">
+                <div class="setting-group">
+                    <label>Node Spwn (s)</label>
+                    <input type="number" id="inpNodeSpawn" value="5.0" step="0.5" min="0.5">
+                </div>
+                <div class="setting-group">
+                    <label>Res Spwn (s)</label>
+                    <input type="number" id="inpResSpawn" value="2.0" step="0.5" min="0.5">
+                </div>
+                <div class="setting-group">
+                    <label>Base Decay /s</label>
+                    <input type="number" id="inpDecay" value="2.5" step="0.5" min="0.5">
+                </div>
+                <div class="setting-group">
+                    <label>Max Energy</label>
+                    <input type="number" id="inpMaxEnergy" value="200" step="10" min="50">
+                </div>
+                <div class="setting-group">
+                    <label>Speed Mult</label>
+                    <input type="number" id="inpSpeedMult" value="1.0" step="0.1" min="0.1">
+                </div>
+                <div class="setting-group">
+                    <label>Troph Range</label>
+                    <input type="number" id="inpTrophRange" value="180" step="10" min="50">
+                </div>
+                <div class="setting-group">
+                    <label>Troph Rate</label>
+                    <input type="number" id="inpTrophRate" value="30" step="5" min="5">
+                </div>
+                <div class="setting-group">
+                    <label>Crack Prob</label>
+                    <input type="number" id="inpCrackProb" value="0.003" step="0.001" min="0.0001">
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button id="startBtn" class="highlight-value" style="background:#a2ff00; color:#000;">START / RESTART</button>
+                <button id="stopBtn" class="danger-btn">STOP</button>
+                <button id="spawnNodeBtn" class="action-btn">Force Spawn Node</button>
+                <button id="spawnFoodBtn" class="action-btn">Spawn Res Cluster</button>
+                <button id="trophallaxisBtn">Trophallaxis: OFF (Hoarding)</button>
+                <button id="downloadLogBtn" class="action-btn">Download Log</button>
+            </div>
+        </div>
+        
+        <!-- Live Data Panel -->
+        <div class="info-panel">
+            <div class="info-box target-box">
+                <div class="info-label">Target Code</div>
+                <div class="info-value" id="uiTargetCode">00000</div>
+            </div>
+            <div class="info-box">
+                <div class="info-label">Codes Cracked</div>
+                <div class="info-value highlight-value" id="uiCodesCracked">0</div>
+            </div>
+            <div class="info-box">
+                <div class="info-label">Network Hashrate</div>
+                <div class="info-value" id="uiHashRate">0 /s</div>
+            </div>
+            <div class="info-box">
+                <div class="info-label">Active Nodes</div>
+                <div class="info-value" id="uiActiveNodes">0</div>
+            </div>
+            <div class="info-box">
+                <div class="info-label">Starved Nodes</div>
+                <div class="info-value" style="color: #ff3366;" id="uiStarvedNodes">0</div>
+            </div>
+        </div>
+        
+        <div class="canvas-container">
+            <canvas id="canvas" width="1200" height="500"></canvas>
+        </div>
+    </div>
+    
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // --- UI Elements ---
+        const uiTargetCode = document.getElementById('uiTargetCode');
+        const uiCodesCracked = document.getElementById('uiCodesCracked');
+        const uiActiveNodes = document.getElementById('uiActiveNodes');
+        const uiHashRate = document.getElementById('uiHashRate');
+        const uiStarvedNodes = document.getElementById('uiStarvedNodes');
+        
+        const btnStart = document.getElementById('startBtn');
+        const btnStop = document.getElementById('stopBtn');
+        const btnTrophallaxis = document.getElementById('trophallaxisBtn');
+        const btnSpawnNode = document.getElementById('spawnNodeBtn');
+        const btnSpawnFood = document.getElementById('spawnFoodBtn');
+        const btnDownloadLog = document.getElementById('downloadLogBtn');
+
+        // Inputs
+        const inpNodeSpawn = document.getElementById('inpNodeSpawn');
+        const inpResSpawn = document.getElementById('inpResSpawn');
+        const inpDecay = document.getElementById('inpDecay');
+        const inpMaxEnergy = document.getElementById('inpMaxEnergy');
+        const inpSpeedMult = document.getElementById('inpSpeedMult');
+        const inpTrophRange = document.getElementById('inpTrophRange');
+        const inpTrophRate = document.getElementById('inpTrophRate');
+        const inpCrackProb = document.getElementById('inpCrackProb');
+
+        // --- System State ---
+        let isRunning = false;
+        let trophallaxisActive = false;
+        
+        // Dynamic Config Parameters 
+        let configNodeSpawnRate = 5.0;
+        let configResSpawnRate = 2.0;
+        let configDecayRate = 2.5;
+        let configMaxEnergy = 200;
+        let configSpeedMult = 1.0;
+        let configTrophRange = 180;
+        let configTrophRate = 30;
+        let configCrackProb = 0.003;
+
+        // Constants
+        const INITIAL_ENERGY = 80;
+        const BASE_GUESS_RATE = 1.0; 
+        const RESOURCE_ENERGY = 25;
+
+        // Tracking variables
+        let currentTargetCode = "";
+        let totalCracked = 0;
+        let globalHashes = 0;
+        let globalStarvedCount = 0;
+        let eventLog = [];
+        let nodes = [];
+        let resources = [];
+        let floatingTexts = [];
+        let flashingLinks = [];
+        let nodeIdCounter = 0;
+
+        // Timers
+        let nodeSpawnTimer = 0;
+        let resSpawnTimer = 0;
+
+        // Hashrate monitor
+        let lastHashesCount = 0;
+        setInterval(() => {
+            if (!isRunning) return;
+            let currentRate = globalHashes - lastHashesCount;
+            uiHashRate.textContent = currentRate + " /s";
+            lastHashesCount = globalHashes;
+        }, 1000);
+
+        function logEvent(msg) {
+            const time = new Date().toISOString().substr(11, 8);
+            eventLog.push(`[${time}] ${msg}`);
+            if (eventLog.length > 1000) eventLog.shift();
+        }
+
+        function generateTargetCode() {
+            return Math.floor(1048576 + Math.random() * 15728639).toString(16).toUpperCase().substring(0, 5);
+        }
+
+        // --- Entity: Floating Text ---
+        class FloatingText {
+            constructor(x, y, text, color, life = 1.0, floatSpeed = 1) {
+                this.x = x;
+                this.y = y;
+                this.text = text;
+                this.color = color;
+                this.life = life; 
+                this.maxLife = life;
+                this.vy = -floatSpeed - Math.random();
+            }
+            update(dt) {
+                this.y += this.vy * dt * 30;
+                this.life -= dt;
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = Math.max(0, this.life / this.maxLife);
+                ctx.font = '12px Courier New';
+                ctx.fillText(this.text, this.x, this.y);
+                ctx.globalAlpha = 1.0;
+            }
+        }
+
+        // --- Entity: Resource (Food) ---
+        class Resource {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = 4;
+                this.pulse = Math.random() * Math.PI * 2;
+            }
+            draw() {
+                this.pulse += 0.1;
+                const currentSize = this.size + Math.sin(this.pulse) * 1.5;
+                ctx.fillStyle = '#42aaff';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, currentSize, 0, Math.PI*2);
+                ctx.fill();
+            }
+        }
+
+        // --- Entity: Node (The Information Processor) ---
+        class Node {
+            constructor(x, y) {
+                this.id = ++nodeIdCounter;
+                this.x = x;
+                this.y = y;
+                
+                this.baseRadius = 6;
+                this.radius = this.baseRadius * 2; // Initial spawned state is double sized
+                
+                const angle = Math.random() * Math.PI * 2;
+                this.inherentSpeed = Math.random() * 0.5 + 0.5; // Base speed independent of multiplier
+                
+                let initialSpeed = this.inherentSpeed * 2 * configSpeedMult;
+                this.dx = Math.cos(angle) * initialSpeed;
+                this.dy = Math.sin(angle) * initialSpeed;
+                
+                this.energy = INITIAL_ENERGY;
+                this.age = 0;
+                this.maxAge = 40 + Math.random() * 20; 
+                
+                this.level = 1;
+                this.codesGuessed = 0;
+                this.guessTimer = 0;
+            }
+
+            get capability() {
+                return BASE_GUESS_RATE * Math.pow(1.8, this.level - 1);
+            }
+
+            update(dt) {
+                this.age += dt;
+                
+                // Clamp energy if configMaxEnergy was lowered
+                if (this.energy > configMaxEnergy) this.energy = configMaxEnergy;
+
+                const isStarved = this.energy < 20;
+
+                // Energy decay: double rate if not starved
+                const currentDecay = isStarved ? configDecayRate : (configDecayRate * 2);
+                this.energy -= currentDecay * dt;
+
+                // Smooth radius adjustment (double size if not starved)
+                const targetRadius = isStarved ? this.baseRadius : (this.baseRadius * 2);
+                this.radius += (targetRadius - this.radius) * 10 * dt;
+
+                // Active max speed (double speed if not starved, multiplied by user config)
+                const baseAdjusted = this.inherentSpeed * configSpeedMult;
+                const activeMaxSpeed = isStarved ? baseAdjusted : (baseAdjusted * 2);
+
+                // Level up mechanics
+                if (this.codesGuessed > this.level * 20 && this.level < 6) {
+                    this.level++;
+                    this.baseRadius += 1.5;
+                    logEvent(`Node ${this.id} ↑ lvl ${this.level}`);
+                    floatingTexts.push(new FloatingText(this.x, this.y - 10, "LVL UP", "#a2ff00", 2.0));
+                }
+
+                // Epistemic Processing (Hashing) - ONLY IF NOT STARVED
+                if (!isStarved) {
+                    this.guessTimer += dt;
+                    const timePerGuess = 1.0 / this.capability;
+                    
+                    while (this.guessTimer >= timePerGuess) {
+                        this.guessTimer -= timePerGuess;
+                        this.codesGuessed++;
+                        globalHashes++;
+                        
+                        if (Math.random() < configCrackProb) {
+                            this.crackTarget();
+                        } else {
+                            if(Math.random() < 0.2) {
+                                const hex = Math.floor(Math.random() * 1048576).toString(16).toUpperCase().padStart(5, '0');
+                                floatingTexts.push(new FloatingText(this.x + (Math.random()*10-5), this.y - 5, hex, "#00ffcc44", 0.5));
+                            }
+                        }
+                    }
+                }
+
+                // Seek nearest food
+                let target = null;
+                let minDist = Infinity;
+                resources.forEach(res => {
+                    const dist = Math.hypot(res.x - this.x, res.y - this.y);
+                    if (dist < minDist) {
+                        minDist = dist;
+                        target = res;
+                    }
+                });
+
+                if (target && minDist < 200) {
+                    const angle = Math.atan2(target.y - this.y, target.x - this.x);
+                    this.dx = Math.cos(angle) * activeMaxSpeed * 1.5;
+                    this.dy = Math.sin(angle) * activeMaxSpeed * 1.5;
+
+                    if (minDist < this.radius + target.size) {
+                        if (this.energy < configMaxEnergy) {
+                            this.energy = Math.min(configMaxEnergy, this.energy + RESOURCE_ENERGY);
+                            resources.splice(resources.indexOf(target), 1);
+                        } else {
+                            // HOARDING: Full nodes sit still and block access
+                            this.dx *= 0.1;
+                            this.dy *= 0.1;
+                        }
+                    }
+                } else {
+                    this.dx += (Math.random() - 0.5) * 0.1;
+                    this.dy += (Math.random() - 0.5) * 0.1;
+                }
+
+                // Speed Clamping based on current physiological state
+                const currentSpeed = Math.hypot(this.dx, this.dy);
+                if (currentSpeed > activeMaxSpeed * 1.5) {
+                    this.dx = (this.dx / currentSpeed) * activeMaxSpeed * 1.5;
+                    this.dy = (this.dy / currentSpeed) * activeMaxSpeed * 1.5;
+                }
+
+                this.x += this.dx;
+                this.y += this.dy;
+
+                // Bounds
+                if (this.x < 0) { this.x = 0; this.dx *= -1; }
+                if (this.x > canvas.width) { this.x = canvas.width; this.dx *= -1; }
+                if (this.y < 0) { this.y = 0; this.dy *= -1; }
+                if (this.y > canvas.height) { this.y = canvas.height; this.dy *= -1; }
+            }
+
+            crackTarget() {
+                totalCracked++;
+                uiCodesCracked.textContent = totalCracked;
+                
+                logEvent(`Node ${this.id} ★ CRACKED [${currentTargetCode}]`);
+                
+                for(let i=0; i<5; i++) {
+                    floatingTexts.push(new FloatingText(this.x, this.y - 10, `CRACKED: ${currentTargetCode}`, "#ff00ff", 3.0, 2));
+                }
+
+                currentTargetCode = generateTargetCode();
+                uiTargetCode.textContent = currentTargetCode;
+                logEvent(`★ New Target Assigned: [${currentTargetCode}]`);
+            }
+
+            draw() {
+                const isStarved = this.energy < 20;
+                let color;
+                if (isStarved) color = '#ff3366';
+                else if (this.energy > configMaxEnergy * 0.75) color = '#a2ff00';
+                else color = '#00ffcc';
+
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = color;
+                ctx.fill();
+
+                // Draw level ring
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius + 3, 0, Math.PI * 2);
+                ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 + (this.level * 0.15)})`;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+
+                // Draw energy bar
+                const barWidth = 20;
+                ctx.fillStyle = '#333';
+                ctx.fillRect(this.x - barWidth/2, this.y + this.radius + 4, barWidth, 3);
+                ctx.fillStyle = color;
+                ctx.fillRect(this.x - barWidth/2, this.y + this.radius + 4, barWidth * (this.energy / configMaxEnergy), 3);
+            }
+        }
+
+        // --- Core Simulation Logic ---
+        function updateConfigFromUI() {
+            // Read UI inputs dynamically each frame so changes take effect instantly
+            configNodeSpawnRate = parseFloat(inpNodeSpawn.value) || 5.0;
+            configResSpawnRate = parseFloat(inpResSpawn.value) || 2.0;
+            configDecayRate = parseFloat(inpDecay.value) || 2.5;
+            configMaxEnergy = parseFloat(inpMaxEnergy.value) || 200;
+            configSpeedMult = parseFloat(inpSpeedMult.value) || 1.0;
+            configTrophRange = parseFloat(inpTrophRange.value) || 180;
+            configTrophRate = parseFloat(inpTrophRate.value) || 30;
+            configCrackProb = parseFloat(inpCrackProb.value) || 0.003;
+        }
+
+        function handleTrophallaxis() {
+            if (!trophallaxisActive) return;
+
+            // Rich threshold is 50% max energy, poor threshold is <40 absolute
+            const richThreshold = configMaxEnergy * 0.5;
+
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const n1 = nodes[i];
+                    const n2 = nodes[j];
+                    const dist = Math.hypot(n1.x - n2.x, n1.y - n2.y);
+
+                    if (dist < configTrophRange) {
+                        let donor = null;
+                        let receiver = null;
+
+                        if (n1.energy > richThreshold && n2.energy < 40) { donor = n1; receiver = n2; }
+                        else if (n2.energy > richThreshold && n1.energy < 40) { donor = n2; receiver = n1; }
+
+                        if (donor && receiver) {
+                            donor.energy -= configTrophRate;
+                            receiver.energy += configTrophRate;
+                            
+                            flashingLinks.push({x1: donor.x, y1: donor.y, x2: receiver.x, y2: receiver.y, alpha: 1.0});
+                            
+                            if(Math.random() < 0.05) {
+                                logEvent(`Node ${donor.id} ⇄ Node ${receiver.id}`);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        function updateSimulation(dt) {
+            updateConfigFromUI();
+            
+            if (!isRunning) return;
+
+            // Handle Deaths
+            for (let i = nodes.length - 1; i >= 0; i--) {
+                const n = nodes[i];
+                if (n.energy <= 0) {
+                    globalStarvedCount++;
+                    logEvent(`Node ${n.id} ☠ starved`);
+                    floatingTexts.push(new FloatingText(n.x, n.y, "STARVED", "#ff3366", 2.0));
+                    nodes.splice(i, 1);
+                } else if (n.age >= n.maxAge) {
+                    floatingTexts.push(new FloatingText(n.x, n.y, "RECYCLED", "#557788", 1.5));
+                    nodes.splice(i, 1);
+                }
+            }
+
+            nodes.forEach(n => n.update(dt));
+            floatingTexts.forEach(ft => ft.update(dt));
+            floatingTexts = floatingTexts.filter(ft => ft.life > 0);
+            
+            handleTrophallaxis();
+
+            // Scheduled Resource Spawning
+            resSpawnTimer += dt;
+            if (resSpawnTimer >= configResSpawnRate) {
+                resSpawnTimer = 0;
+                if (resources.length < 100) {
+                    const cx = Math.random() * canvas.width;
+                    const cy = Math.random() * canvas.height;
+                    for(let k=0; k<6; k++) {
+                        resources.push(new Resource(cx + (Math.random()*40-20), cy + (Math.random()*40-20)));
+                    }
+                }
+            }
+
+            // Scheduled Node Spawning
+            nodeSpawnTimer += dt;
+            if (nodeSpawnTimer >= configNodeSpawnRate) {
+                nodeSpawnTimer = 0;
+                if (nodes.length < 50) spawnNode();
+            }
+
+            // Update UI Counters
+            uiActiveNodes.textContent = nodes.length;
+            uiStarvedNodes.textContent = globalStarvedCount;
+        }
+
+        function drawSimulation() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw symbiosis links
+            for (let i = flashingLinks.length - 1; i >= 0; i--) {
+                const link = flashingLinks[i];
+                ctx.beginPath();
+                ctx.moveTo(link.x1, link.y1);
+                ctx.lineTo(link.x2, link.y2);
+                ctx.strokeStyle = `rgba(162, 255, 0, ${link.alpha})`;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                
+                link.alpha -= 0.05;
+                if (link.alpha <= 0) flashingLinks.splice(i, 1);
+            }
+
+            resources.forEach(r => r.draw());
+            nodes.forEach(n => n.draw());
+            floatingTexts.forEach(ft => ft.draw());
+
+            // Pause Overlay
+            if (!isRunning) {
+                ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "#00ffcc";
+                ctx.font = "30px Courier New";
+                ctx.textAlign = "center";
+                ctx.fillText("SYSTEM OFFLINE - PRESS START", canvas.width/2, canvas.height/2);
+                ctx.textAlign = "left"; // reset
+            }
+        }
+
+        let lastTime = performance.now();
+        function loop() {
+            const now = performance.now();
+            const dt = (now - lastTime) / 1000; 
+            lastTime = now;
+
+            updateSimulation(dt);
+            drawSimulation();
+            requestAnimationFrame(loop);
+        }
+
+        // --- Inputs & Controls ---
+        function spawnNode() {
+            const n = new Node(Math.random() * canvas.width, Math.random() * canvas.height);
+            nodes.push(n);
+            logEvent(`Node ${n.id} ✧ spawned`);
+        }
+
+        function startSimulation() {
+            updateConfigFromUI();
+
+            nodes = [];
+            resources = [];
+            floatingTexts = [];
+            flashingLinks = [];
+            eventLog = [];
+            nodeIdCounter = 0;
+            globalHashes = 0;
+            totalCracked = 0;
+            globalStarvedCount = 0;
+            nodeSpawnTimer = 0;
+            resSpawnTimer = 0;
+
+            uiCodesCracked.textContent = "0";
+            uiStarvedNodes.textContent = "0";
+
+            currentTargetCode = generateTargetCode();
+            uiTargetCode.textContent = currentTargetCode;
+
+            for(let i=0; i<15; i++) spawnNode();
+            for(let i=0; i<30; i++) resources.push(new Resource(Math.random()*canvas.width, Math.random()*canvas.height));
+            
+            logEvent("=== SYSTEM START ===");
+            logEvent(`★ Target Assigned: [${currentTargetCode}]`);
+            
+            isRunning = true;
+        }
+
+        function stopSimulation() {
+            isRunning = false;
+            logEvent("=== SYSTEM HALTED ===");
+        }
+
+        btnStart.addEventListener('click', startSimulation);
+        btnStop.addEventListener('click', stopSimulation);
+        
+        btnSpawnNode.addEventListener('click', () => { if(isRunning) spawnNode(); });
+        
+        btnSpawnFood.addEventListener('click', () => {
+            if(!isRunning) return;
+            const cx = Math.random() * canvas.width;
+            const cy = Math.random() * canvas.height;
+            for(let k=0; k<15; k++) {
+                resources.push(new Resource(cx + (Math.random()*60-30), cy + (Math.random()*60-30)));
+            }
+            logEvent(`✜ resources injected`);
+        });
+
+        btnTrophallaxis.addEventListener('click', () => {
+            trophallaxisActive = !trophallaxisActive;
+            if (trophallaxisActive) {
+                btnTrophallaxis.classList.add('active');
+                btnTrophallaxis.textContent = "Trophallaxis: ON (Symbiosis)";
+                logEvent("=== TROPHALLAXIS: ON ===");
+            } else {
+                btnTrophallaxis.classList.remove('active');
+                btnTrophallaxis.textContent = "Trophallaxis: OFF (Hoarding)";
+                logEvent("=== TROPHALLAXIS: OFF ===");
+            }
+        });
+
+        btnDownloadLog.addEventListener('click', () => {
+            const logText = eventLog.join('\n');
+            const blob = new Blob([logText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `epistemic-log-${new Date().getTime()}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+        // Initialize UI values to internal state once, then start loop
+        updateConfigFromUI();
+        requestAnimationFrame(loop);
+    </script>
+</body>
+</html>
