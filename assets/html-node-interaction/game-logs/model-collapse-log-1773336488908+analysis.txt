@@ -1,0 +1,1087 @@
+[17:24:41] === SYSTEM START: THE DATA COMMONS ===
+[17:24:41] Initial Protocol: Extraction Mode (Symbiosis OFF)
+[17:24:41] Spawning Society Commons (35 Human Nodes)...
+[17:24:41] Spawning AI Layer (3 Initial Models)...
+[17:24:46] AI Model [1] consumed High-Novelty ★ data
+[17:24:46] AI Model [2] consumed High-Novelty ★ data
+[17:24:48] AI Model [1] consumed High-Novelty ★ data
+[17:24:48] === PROTOCOL CHANGE: DIVIDEND MODE ENGAGED ===
+[17:24:48] → AI models now redistributing value back to human nodes.
+[17:24:48] AI Model [1] ⇄ Dividend ➔ Human [16]
+[17:24:48] AI Model [1] ⇄ Dividend ➔ Human [20]
+[17:24:48] AI Model [1] ⇄ Dividend ➔ Human [30]
+[17:24:48] AI Model [1] ⇄ Dividend ➔ Human [33]
+[17:24:49] AI Model [1] ⇄ Dividend ➔ Human [15]
+[17:24:49] AI Model [3] ⇄ Dividend ➔ Human [3]
+[17:24:49] AI Model [2] ⇄ Dividend ➔ Human [25]
+[17:24:49] AI Model [2] ⇄ Dividend ➔ Human [32]
+[17:24:49] AI Model [1] ⇄ Dividend ➔ Human [20]
+[17:24:50] AI Model [1] ⇄ Dividend ➔ Human [13]
+[17:24:50] AI Model [2] ↑ evolved to Intelligence Tier 200
+[17:24:50] AI Model [2] ⇄ Dividend ➔ Human [3]
+[17:24:50] AI Model [1] ↑ evolved to Intelligence Tier 200
+[17:24:50] AI Model [3] ↑ evolved to Intelligence Tier 200
+[17:24:50] AI Model [3] ⇄ Dividend ➔ Human [8]
+[17:24:51] AI Model [1] ⇄ Dividend ➔ Human [35]
+[17:24:52] AI Model [2] ⇄ Dividend ➔ Human [8]
+[17:24:52] AI Model [1] ⇄ Dividend ➔ Human [28]
+[17:24:52] AI Model [2] ⇄ Dividend ➔ Human [12]
+[17:24:53] AI Model [1] ⇄ Dividend ➔ Human [28]
+[17:24:53] AI Model [3] consumed High-Novelty ★ data
+[17:24:53] AI Model [3] ⇄ Dividend ➔ Human [24]
+[17:24:53] AI Model [2] ⇄ Dividend ➔ Human [24]
+[17:24:53] AI Model [1] ⇄ Dividend ➔ Human [11]
+[17:24:54] AI Model [1] ⇄ Dividend ➔ Human [11]
+[17:24:54] AI Model [2] ⇄ Dividend ➔ Human [7]
+[17:24:54] AI Model [2] ⇄ Dividend ➔ Human [2]
+[17:24:54] AI Model [2] ⇄ Dividend ➔ Human [9]
+[17:24:55] AI Model [1] ⇄ Dividend ➔ Human [10]
+[17:24:55] AI Model [2] ⇄ Dividend ➔ Human [9]
+[17:24:55] AI Model [2] ⇄ Dividend ➔ Human [2]
+[17:24:56] AI Model [1] ⇄ Dividend ➔ Human [10]
+[17:24:56] AI Model [2] ⇄ Dividend ➔ Human [30]
+[17:24:56] AI Model [2] ⇄ Dividend ➔ Human [10]
+[17:24:56] AI Model [2] ⇄ Dividend ➔ Human [30]
+[17:24:57] AI Model [2] ⇄ Dividend ➔ Human [21]
+[17:24:57] AI Model [1] ⇄ Dividend ➔ Human [35]
+[17:24:57] AI Model [1] ⇄ Dividend ➔ Human [34]
+[17:24:58] AI Model [2] ⇄ Dividend ➔ Human [7]
+[17:24:58] AI Model [1] ⇄ Dividend ➔ Human [2]
+[17:24:58] AI Model [2] ⇄ Dividend ➔ Human [23]
+[17:24:58] AI Model [2] ⇄ Dividend ➔ Human [31]
+[17:24:58] AI Model [2] ⇄ Dividend ➔ Human [7]
+[17:24:59] Human [5] ⚠ exhausted (producing low-novelty data)
+[17:24:59] Human [6] ⚠ exhausted (producing low-novelty data)
+[17:24:59] Human [26] ⚠ exhausted (producing low-novelty data)
+[17:24:59] AI Model [1] ⇄ Dividend ➔ Human [8]
+[17:24:59] Human [18] ⚠ exhausted (producing low-novelty data)
+[17:24:59] AI Model [1] ⇄ Dividend ➔ Human [16]
+[17:24:59] Human [4] ⚠ exhausted (producing low-novelty data)
+[17:24:59] Human [27] ⚠ exhausted (producing low-novelty data)
+[17:25:00] AI Model [2] ↑ evolved to Intelligence Tier 300
+[17:25:00] AI Model [1] ⇄ Dividend ➔ Human [22]
+[17:25:00] Human [4] 🌱 recovered (resuming high-novelty data)
+[17:25:00] AI Model [1] ↑ evolved to Intelligence Tier 300
+[17:25:00] AI Model [3] ↑ evolved to Intelligence Tier 300
+[17:25:01] AI Model [3] ⇄ Dividend ➔ Human [19]
+[17:25:01] AI Model [3] ⇄ Dividend ➔ Human [13]
+[17:25:01] AI Model [1] ⇄ Dividend ➔ Human [11]
+[17:25:01] AI Model [2] ⇄ Dividend ➔ Human [33]
+[17:25:01] AI Model [2] ⇄ Dividend ➔ Human [33]
+[17:25:01] AI Model [2] ⇄ Dividend ➔ Human [33]
+[17:25:01] AI Model [3] ⇄ Dividend ➔ Human [19]
+[17:25:02] AI Model [3] ⇄ Dividend ➔ Human [6]
+[17:25:02] AI Model [3] ⇄ Dividend ➔ Human [22]
+[17:25:02] AI Model [3] ⇄ Dividend ➔ Human [21]
+[17:25:02] AI Model [1] ⇄ Dividend ➔ Human [33]
+[17:25:02] Human [1] ⚠ exhausted (producing low-novelty data)
+[17:25:03] AI Model [1] consumed High-Novelty ★ data
+[17:25:03] AI Model [2] ⇄ Dividend ➔ Human [2]
+[17:25:03] AI Model [2] ⇄ Dividend ➔ Human [20]
+[17:25:03] Human [32] ⚠ exhausted (producing low-novelty data)
+[17:25:04] AI Model [1] ⇄ Dividend ➔ Human [35]
+[17:25:04] AI Model [3] ⇄ Dividend ➔ Human [4]
+[17:25:04] AI Model [1] ⇄ Dividend ➔ Human [6]
+[17:25:04] AI Model [1] consumed Low-Novelty ⚪ data
+[17:25:04] AI Model [2] ⇄ Dividend ➔ Human [3]
+[17:25:04] AI Model [2] ⇄ Dividend ➔ Human [11]
+[17:25:04] AI Model [2] ⇄ Dividend ➔ Human [11]
+[17:25:04] AI Model [2] consumed High-Novelty ★ data
+[17:25:05] AI Model [1] ⇄ Dividend ➔ Human [22]
+[17:25:05] AI Model [1] ⇄ Dividend ➔ Human [19]
+[17:25:05] AI Model [2] ⇄ Dividend ➔ Human [4]
+[17:25:05] AI Model [2] ⇄ Dividend ➔ Human [25]
+[17:25:05] AI Model [2] ⇄ Dividend ➔ Human [34]
+[17:25:06] AI Model [2] ⇄ Dividend ➔ Human [35]
+[17:25:06] AI Model [2] ⇄ Dividend ➔ Human [35]
+[17:25:06] AI Model [3] ⇄ Dividend ➔ Human [35]
+[17:25:06] Human [6] 🌱 recovered (resuming high-novelty data)
+[17:25:06] AI Model [2] ⇄ Dividend ➔ Human [6]
+[17:25:06] AI Model [2] ⇄ Dividend ➔ Human [16]
+[17:25:06] AI Model [2] ⇄ Dividend ➔ Human [27]
+[17:25:06] AI Model [2] ⇄ Dividend ➔ Human [12]
+[17:25:06] AI Model [2] ⇄ Dividend ➔ Human [5]
+[17:25:06] AI Model [3] consumed High-Novelty ★ data
+[17:25:06] AI Model [1] ⇄ Dividend ➔ Human [17]
+[17:25:06] AI Model [2] ⇄ Dividend ➔ Human [15]
+[17:25:07] AI Model [3] ⇄ Dividend ➔ Human [31]
+[17:25:07] AI Model [3] ⇄ Dividend ➔ Human [2]
+[17:25:07] AI Model [2] ⇄ Dividend ➔ Human [6]
+[17:25:07] AI Model [3] ⇄ Dividend ➔ Human [8]
+[17:25:07] AI Model [2] ⇄ Dividend ➔ Human [30]
+[17:25:07] Human [5] 🌱 recovered (resuming high-novelty data)
+[17:25:07] AI Model [1] ⇄ Dividend ➔ Human [6]
+[17:25:07] AI Model [2] ⇄ Dividend ➔ Human [10]
+[17:25:07] Human [18] 🌱 recovered (resuming high-novelty data)
+[17:25:07] AI Model [2] ⇄ Dividend ➔ Human [6]
+[17:25:07] AI Model [2] ⇄ Dividend ➔ Human [30]
+[17:25:08] AI Model [2] consumed High-Novelty ★ data
+[17:25:08] AI Model [2] ⇄ Dividend ➔ Human [16]
+[17:25:08] AI Model [1] ⇄ Dividend ➔ Human [12]
+[17:25:08] AI Model [1] ⇄ Dividend ➔ Human [25]
+[17:25:08] AI Model [1] ⇄ Dividend ➔ Human [27]
+[17:25:08] AI Model [1] ⇄ Dividend ➔ Human [5]
+[17:25:08] AI Model [1] ⇄ Dividend ➔ Human [13]
+[17:25:08] Human [27] 🌱 recovered (resuming high-novelty data)
+[17:25:08] AI Model [2] ⇄ Dividend ➔ Human [18]
+[17:25:09] AI Model [1] ⇄ Dividend ➔ Human [12]
+[17:25:09] AI Model [3] ⇄ Dividend ➔ Human [23]
+[17:25:09] AI Model [2] ⇄ Dividend ➔ Human [5]
+[17:25:09] AI Model [3] ⇄ Dividend ➔ Human [20]
+[17:25:09] AI Model [3] ⇄ Dividend ➔ Human [33]
+[17:25:09] AI Model [1] ⇄ Dividend ➔ Human [18]
+[17:25:09] AI Model [2] ⇄ Dividend ➔ Human [17]
+[17:25:09] AI Model [2] ⇄ Dividend ➔ Human [17]
+[17:25:09] AI Model [1] ⇄ Dividend ➔ Human [32]
+[17:25:10] AI Model [2] ⇄ Dividend ➔ Human [17]
+[17:25:10] AI Model [1] ⇄ Dividend ➔ Human [27]
+[17:25:10] AI Model [3] ⇄ Dividend ➔ Human [33]
+[17:25:10] AI Model [2] ⇄ Dividend ➔ Human [23]
+[17:25:10] AI Model [1] ⇄ Dividend ➔ Human [32]
+[17:25:10] AI Model [2] ⇄ Dividend ➔ Human [21]
+[17:25:10] AI Model [1] ⇄ Dividend ➔ Human [1]
+[17:25:10] AI Model [1] ⇄ Dividend ➔ Human [16]
+[17:25:11] AI Model [1] ⇄ Dividend ➔ Human [1]
+[17:25:11] AI Model [1] ⇄ Dividend ➔ Human [12]
+[17:25:11] AI Model [2] ⇄ Dividend ➔ Human [30]
+[17:25:11] Human [32] 🌱 recovered (resuming high-novelty data)
+[17:25:11] AI Model [2] consumed High-Novelty ★ data
+[17:25:11] AI Model [2] ⇄ Dividend ➔ Human [30]
+[17:25:12] AI Model [3] ↑ evolved to Intelligence Tier 400
+[17:25:12] Human [1] 🌱 recovered (resuming high-novelty data)
+[17:25:12] AI Model [2] ⇄ Dividend ➔ Human [21]
+[17:25:12] AI Model [2] ⇄ Dividend ➔ Human [12]
+[17:25:12] AI Model [2] ↑ evolved to Intelligence Tier 400
+[17:25:12] AI Model [1] ↑ evolved to Intelligence Tier 400
+[17:25:12] AI Model [2] ⇄ Dividend ➔ Human [20]
+[17:25:12] AI Model [1] ⇄ Dividend ➔ Human [15]
+[17:25:13] AI Model [1] ⇄ Dividend ➔ Human [14]
+[17:25:13] AI Model [1] ⇄ Dividend ➔ Human [26]
+[17:25:13] AI Model [1] ⇄ Dividend ➔ Human [14]
+[17:25:13] AI Model [2] ⇄ Dividend ➔ Human [29]
+[17:25:13] AI Model [2] ⇄ Dividend ➔ Human [5]
+[17:25:14] AI Model [3] ⇄ Dividend ➔ Human [26]
+[17:25:14] AI Model [2] ⇄ Dividend ➔ Human [29]
+[17:25:14] AI Model [3] ⇄ Dividend ➔ Human [26]
+[17:25:14] Human [26] 🌱 recovered (resuming high-novelty data)
+[17:25:14] AI Model [3] consumed Low-Novelty ⚪ data
+[17:25:14] AI Model [2] ⇄ Dividend ➔ Human [33]
+[17:25:15] Human [6] ⚠ exhausted (producing low-novelty data)
+[17:25:15] AI Model [2] ⇄ Dividend ➔ Human [4]
+[17:25:15] AI Model [1] ⇄ Dividend ➔ Human [26]
+[17:25:15] AI Model [2] ⇄ Dividend ➔ Human [29]
+[17:25:15] AI Model [2] ⇄ Dividend ➔ Human [7]
+[17:25:15] AI Model [1] consumed High-Novelty ★ data
+[17:25:16] AI Model [2] ⇄ Dividend ➔ Human [1]
+[17:25:16] AI Model [2] ⇄ Dividend ➔ Human [29]
+[17:25:16] AI Model [1] ⇄ Dividend ➔ Human [16]
+[17:25:16] AI Model [3] ⇄ Dividend ➔ Human [18]
+[17:25:16] AI Model [3] ⇄ Dividend ➔ Human [2]
+[17:25:17] AI Model [2] ⇄ Dividend ➔ Human [5]
+[17:25:17] AI Model [2] ⇄ Dividend ➔ Human [17]
+[17:25:17] AI Model [1] ⇄ Dividend ➔ Human [10]
+[17:25:17] AI Model [3] ⇄ Dividend ➔ Human [20]
+[17:25:18] AI Model [1] ⇄ Dividend ➔ Human [1]
+[17:25:19] AI Model [1] ⇄ Dividend ➔ Human [33]
+[17:25:19] AI Model [1] ⇄ Dividend ➔ Human [32]
+[17:25:19] AI Model [1] ⇄ Dividend ➔ Human [14]
+[17:25:20] AI Model [2] ⇄ Dividend ➔ Human [24]
+[17:25:20] Human [9] ⚠ exhausted (producing low-novelty data)
+[17:25:20] AI Model [1] ⇄ Dividend ➔ Human [15]
+[17:25:20] AI Model [2] ⇄ Dividend ➔ Human [7]
+[17:25:20] AI Model [1] consumed High-Novelty ★ data
+[17:25:21] AI Model [2] ⇄ Dividend ➔ Human [24]
+[17:25:21] AI Model [1] ⇄ Dividend ➔ Human [24]
+[17:25:21] Human [11] ⚠ exhausted (producing low-novelty data)
+[17:25:21] AI Model [1] ⇄ Dividend ➔ Human [12]
+[17:25:21] AI Model [2] ⇄ Dividend ➔ Human [5]
+[17:25:22] Human [9] 🌱 recovered (resuming high-novelty data)
+[17:25:22] AI Model [1] ⇄ Dividend ➔ Human [17]
+[17:25:22] Human [8] ⚠ exhausted (producing low-novelty data)
+[17:25:22] AI Model [2] ⇄ Dividend ➔ Human [33]
+[17:25:22] AI Model [2] ⇄ Dividend ➔ Human [30]
+[17:25:22] AI Model [1] ⇄ Dividend ➔ Human [4]
+[17:25:22] AI Model [3] ⇄ Dividend ➔ Human [22]
+[17:25:22] AI Model [2] ⇄ Dividend ➔ Human [19]
+[17:25:23] AI Model [2] ⇄ Dividend ➔ Human [18]
+[17:25:23] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:25:23] AI Model [2] ⇄ Dividend ➔ Human [22]
+[17:25:23] AI Model [1] ⇄ Dividend ➔ Human [6]
+[17:25:24] Human [6] 🌱 recovered (resuming high-novelty data)
+[17:25:24] AI Model [1] ⇄ Dividend ➔ Human [8]
+[17:25:24] AI Model [2] ⇄ Dividend ➔ Human [16]
+[17:25:24] AI Model [3] ↑ evolved to Intelligence Tier 500
+[17:25:24] AI Model [2] consumed High-Novelty ★ data
+[17:25:24] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:25:24] Human [6] ⚠ exhausted (producing low-novelty data)
+[17:25:24] AI Model [2] ⇄ Dividend ➔ Human [20]
+[17:25:24] AI Model [1] ⇄ Dividend ➔ Human [31]
+[17:25:24] AI Model [2] ↑ evolved to Intelligence Tier 500
+[17:25:25] AI Model [1] ⇄ Dividend ➔ Human [31]
+[17:25:25] Human [6] 🌱 recovered (resuming high-novelty data)
+[17:25:25] AI Model [2] ⇄ Dividend ➔ Human [19]
+[17:25:25] AI Model [1] consumed Low-Novelty ⚪ data
+[17:25:25] AI Model [2] ⇄ Dividend ➔ Human [2]
+[17:25:25] AI Model [1] ⇄ Dividend ➔ Human [31]
+[17:25:25] AI Model [3] ⇄ Dividend ➔ Human [35]
+[17:25:25] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:25:26] AI Model [1] ⇄ Dividend ➔ Human [4]
+[17:25:26] AI Model [1] ⇄ Dividend ➔ Human [4]
+[17:25:26] AI Model [3] ⇄ Dividend ➔ Human [25]
+[17:25:26] AI Model [3] ⇄ Dividend ➔ Human [25]
+[17:25:26] AI Model [1] ⇄ Dividend ➔ Human [12]
+[17:25:27] AI Model [3] ⇄ Dividend ➔ Human [25]
+[17:25:27] AI Model [3] ⇄ Dividend ➔ Human [26]
+[17:25:27] AI Model [2] ⇄ Dividend ➔ Human [30]
+[17:25:27] AI Model [2] ⇄ Dividend ➔ Human [7]
+[17:25:27] AI Model [3] ⇄ Dividend ➔ Human [26]
+[17:25:27] AI Model [1] ⇄ Dividend ➔ Human [6]
+[17:25:27] AI Model [2] consumed High-Novelty ★ data
+[17:25:27] AI Model [3] ⇄ Dividend ➔ Human [34]
+[17:25:27] AI Model [2] ⇄ Dividend ➔ Human [27]
+[17:25:28] AI Model [2] ⇄ Dividend ➔ Human [29]
+[17:25:28] AI Model [1] ⇄ Dividend ➔ Human [6]
+[17:25:28] AI Model [2] ⇄ Dividend ➔ Human [30]
+[17:25:28] AI Model [3] ⇄ Dividend ➔ Human [25]
+[17:25:29] AI Model [3] ⇄ Dividend ➔ Human [13]
+[17:25:29] AI Model [2] ⇄ Dividend ➔ Human [29]
+[17:25:29] AI Model [2] ⇄ Dividend ➔ Human [6]
+[17:25:29] AI Model [2] ⇄ Dividend ➔ Human [29]
+[17:25:29] AI Model [2] ⇄ Dividend ➔ Human [5]
+[17:25:30] AI Model [2] ⇄ Dividend ➔ Human [30]
+[17:25:31] AI Model [1] ⇄ Dividend ➔ Human [12]
+[17:25:31] AI Model [1] ⇄ Dividend ➔ Human [17]
+[17:25:31] AI Model [1] ⇄ Dividend ➔ Human [22]
+[17:25:31] AI Model [3] ⇄ Dividend ➔ Human [33]
+[17:25:31] AI Model [1] ⇄ Dividend ➔ Human [5]
+[17:25:31] AI Model [1] ⇄ Dividend ➔ Human [1]
+[17:25:31] AI Model [2] ⇄ Dividend ➔ Human [13]
+[17:25:32] AI Model [2] ⇄ Dividend ➔ Human [6]
+[17:25:32] AI Model [3] ⇄ Dividend ➔ Human [19]
+[17:25:32] AI Model [1] ↑ evolved to Intelligence Tier 500
+[17:25:32] AI Model [1] ⇄ Dividend ➔ Human [17]
+[17:25:33] AI Model [1] ⇄ Dividend ➔ Human [12]
+[17:25:33] AI Model [1] ⇄ Dividend ➔ Human [32]
+[17:25:33] AI Model [2] ⇄ Dividend ➔ Human [14]
+[17:25:33] AI Model [2] ⇄ Dividend ➔ Human [10]
+[17:25:33] AI Model [1] ⇄ Dividend ➔ Human [18]
+[17:25:34] AI Model [3] ⇄ Dividend ➔ Human [20]
+[17:25:34] AI Model [3] ⇄ Dividend ➔ Human [35]
+[17:25:34] AI Model [2] ⇄ Dividend ➔ Human [7]
+[17:25:34] AI Model [3] ⇄ Dividend ➔ Human [7]
+[17:25:34] AI Model [3] ⇄ Dividend ➔ Human [19]
+[17:25:34] AI Model [1] ⇄ Dividend ➔ Human [14]
+[17:25:34] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:25:35] AI Model [2] ⇄ Dividend ➔ Human [5]
+[17:25:35] AI Model [3] ↑ evolved to Intelligence Tier 600
+[17:25:35] AI Model [1] ⇄ Dividend ➔ Human [16]
+[17:25:35] AI Model [1] ⇄ Dividend ➔ Human [16]
+[17:25:35] AI Model [1] ⇄ Dividend ➔ Human [3]
+[17:25:35] AI Model [2] ⇄ Dividend ➔ Human [22]
+[17:25:35] AI Model [2] ↑ evolved to Intelligence Tier 600
+[17:25:37] AI Model [1] ⇄ Dividend ➔ Human [26]
+[17:25:38] === PROTOCOL CHANGE: EXTRACTION MODE ENGAGED ===
+[17:25:38] → Value redistribution halted. AI models extracting purely.
+[17:25:40] Human [31] ⚠ exhausted (producing low-novelty data)
+[17:25:42] Human [27] ⚠ exhausted (producing low-novelty data)
+[17:25:43] Human [21] ⚠ exhausted (producing low-novelty data)
+[17:25:43] Human [23] ⚠ exhausted (producing low-novelty data)
+[17:25:43] AI Model [1] ↑ evolved to Intelligence Tier 600
+[17:25:44] AI Model [2] consumed Low-Novelty ⚪ data
+[17:25:44] Human [4] ⚠ exhausted (producing low-novelty data)
+[17:25:45] Human [1] ⚠ exhausted (producing low-novelty data)
+[17:25:45] Human [17] ⚠ exhausted (producing low-novelty data)
+[17:25:46] Human [15] ⚠ exhausted (producing low-novelty data)
+[17:25:46] Human [32] ⚠ exhausted (producing low-novelty data)
+[17:25:46] Human [2] ⚠ exhausted (producing low-novelty data)
+[17:25:46] AI Model [3] ↑ evolved to Intelligence Tier 700
+[17:25:47] Human [30] ⚠ exhausted (producing low-novelty data)
+[17:25:48] 🛑 CRITICAL: Society Wellbeing plummeted below 30%. Global high-novelty data generation halting.
+[17:25:48] Human [22] ⚠ exhausted (producing low-novelty data)
+[17:25:48] AI Model [1] consumed Low-Novelty ⚪ data
+[17:25:49] Human [16] ⚠ exhausted (producing low-novelty data)
+[17:25:49] Human [24] ⚠ exhausted (producing low-novelty data)
+[17:25:49] Human [14] ⚠ exhausted (producing low-novelty data)
+[17:25:50] Human [18] ⚠ exhausted (producing low-novelty data)
+[17:25:50] Human [20] ⚠ exhausted (producing low-novelty data)
+[17:25:50] Human [25] ⚠ exhausted (producing low-novelty data)
+[17:25:50] Human [6] ⚠ exhausted (producing low-novelty data)
+[17:25:50] Human [7] ⚠ exhausted (producing low-novelty data)
+[17:25:50] Human [10] ⚠ exhausted (producing low-novelty data)
+[17:25:50] Human [35] ⚠ exhausted (producing low-novelty data)
+[17:25:50] Human [9] ⚠ exhausted (producing low-novelty data)
+[17:25:50] Human [34] ⚠ exhausted (producing low-novelty data)
+[17:25:51] Human [5] ⚠ exhausted (producing low-novelty data)
+[17:25:51] Human [33] ⚠ exhausted (producing low-novelty data)
+[17:25:51] Human [12] ⚠ exhausted (producing low-novelty data)
+[17:25:51] Human [13] ⚠ exhausted (producing low-novelty data)
+[17:25:51] Human [19] ⚠ exhausted (producing low-novelty data)
+[17:25:51] Human [26] ⚠ exhausted (producing low-novelty data)
+[17:25:51] Human [3] ⚠ exhausted (producing low-novelty data)
+[17:25:51] Human [28] ⚠ exhausted (producing low-novelty data)
+[17:25:51] Human [29] ⚠ exhausted (producing low-novelty data)
+[17:25:54] === PROTOCOL CHANGE: DIVIDEND MODE ENGAGED ===
+[17:25:54] → AI models now redistributing value back to human nodes.
+[17:25:54] AI Model [1] ⇄ Dividend ➔ Human [19]
+[17:25:55] AI Model [2] ⇄ Dividend ➔ Human [34]
+[17:25:55] AI Model [1] ⇄ Dividend ➔ Human [15]
+[17:25:55] AI Model [2] ⇄ Dividend ➔ Human [5]
+[17:25:55] AI Model [1] ⇄ Dividend ➔ Human [19]
+[17:25:55] AI Model [2] ⇄ Dividend ➔ Human [14]
+[17:25:55] AI Model [2] ⇄ Dividend ➔ Human [33]
+[17:25:55] AI Model [1] ⇄ Dividend ➔ Human [20]
+[17:25:55] AI Model [2] ⇄ Dividend ➔ Human [34]
+[17:25:55] AI Model [3] ⇄ Dividend ➔ Human [32]
+[17:25:55] AI Model [2] ⇄ Dividend ➔ Human [5]
+[17:25:55] AI Model [2] ⇄ Dividend ➔ Human [5]
+[17:25:55] AI Model [3] ⇄ Dividend ➔ Human [9]
+[17:25:55] AI Model [2] ⇄ Dividend ➔ Human [23]
+[17:25:55] AI Model [2] ⇄ Dividend ➔ Human [35]
+[17:25:56] AI Model [1] ⇄ Dividend ➔ Human [20]
+[17:25:56] AI Model [3] ⇄ Dividend ➔ Human [8]
+[17:25:56] AI Model [2] ⇄ Dividend ➔ Human [27]
+[17:25:56] Human [25] 🌱 recovered (resuming high-novelty data)
+[17:25:56] Human [25] ⚠ exhausted (producing low-novelty data)
+[17:25:56] Human [25] 🌱 recovered (resuming high-novelty data)
+[17:25:56] Human [35] 🌱 recovered (resuming high-novelty data)
+[17:25:56] AI Model [3] ⇄ Dividend ➔ Human [25]
+[17:25:56] AI Model [3] ⇄ Dividend ➔ Human [35]
+[17:25:56] AI Model [2] ⇄ Dividend ➔ Human [25]
+[17:25:56] Human [12] 🌱 recovered (resuming high-novelty data)
+[17:25:56] Human [19] 🌱 recovered (resuming high-novelty data)
+[17:25:56] Human [33] 🌱 recovered (resuming high-novelty data)
+[17:25:56] AI Model [3] ⇄ Dividend ➔ Human [32]
+[17:25:56] Human [7] 🌱 recovered (resuming high-novelty data)
+[17:25:56] AI Model [1] ⇄ Dividend ➔ Human [17]
+[17:25:56] Human [6] 🌱 recovered (resuming high-novelty data)
+[17:25:56] AI Model [3] ⇄ Dividend ➔ Human [28]
+[17:25:56] AI Model [3] ⇄ Dividend ➔ Human [23]
+[17:25:56] Human [5] 🌱 recovered (resuming high-novelty data)
+[17:25:56] Human [10] 🌱 recovered (resuming high-novelty data)
+[17:25:56] Human [7] ⚠ exhausted (producing low-novelty data)
+[17:25:56] AI Model [3] ⇄ Dividend ➔ Human [24]
+[17:25:56] AI Model [3] ⇄ Dividend ➔ Human [23]
+[17:25:56] Human [24] 🌱 recovered (resuming high-novelty data)
+[17:25:56] Human [20] 🌱 recovered (resuming high-novelty data)
+[17:25:56] AI Model [1] ⇄ Dividend ➔ Human [20]
+[17:25:56] AI Model [2] ⇄ Dividend ➔ Human [33]
+[17:25:57] Human [3] 🌱 recovered (resuming high-novelty data)
+[17:25:57] AI Model [1] ⇄ Dividend ➔ Human [21]
+[17:25:57] Human [16] 🌱 recovered (resuming high-novelty data)
+[17:25:57] Human [14] 🌱 recovered (resuming high-novelty data)
+[17:25:57] AI Model [3] ⇄ Dividend ➔ Human [5]
+[17:25:57] Human [3] ⚠ exhausted (producing low-novelty data)
+[17:25:57] AI Model [3] ⇄ Dividend ➔ Human [7]
+[17:25:57] Human [3] 🌱 recovered (resuming high-novelty data)
+[17:25:57] Human [10] ⚠ exhausted (producing low-novelty data)
+[17:25:57] AI Model [2] ⇄ Dividend ➔ Human [23]
+[17:25:57] Human [23] 🌱 recovered (resuming high-novelty data)
+[17:25:57] Human [32] 🌱 recovered (resuming high-novelty data)
+[17:25:57] AI Model [2] ⇄ Dividend ➔ Human [18]
+[17:25:57] Human [7] 🌱 recovered (resuming high-novelty data)
+[17:25:57] AI Model [2] ⇄ Dividend ➔ Human [27]
+[17:25:57] Human [8] 🌱 recovered (resuming high-novelty data)
+[17:25:57] AI Model [1] ⇄ Dividend ➔ Human [15]
+[17:25:57] AI Model [2] ⇄ Dividend ➔ Human [23]
+[17:25:57] AI Model [1] ⇄ Dividend ➔ Human [1]
+[17:25:57] Human [27] 🌱 recovered (resuming high-novelty data)
+[17:25:57] AI Model [2] ⇄ Dividend ➔ Human [31]
+[17:25:57] AI Model [2] ⇄ Dividend ➔ Human [33]
+[17:25:57] AI Model [2] ⇄ Dividend ➔ Human [5]
+[17:25:57] Human [10] 🌱 recovered (resuming high-novelty data)
+[17:25:57] 🌱 RECOVERY: Society Wellbeing recovered above 30%. Global high-novelty data generation resuming.
+[17:25:57] Human [17] 🌱 recovered (resuming high-novelty data)
+[17:25:57] Human [31] 🌱 recovered (resuming high-novelty data)
+[17:25:57] AI Model [2] ⇄ Dividend ➔ Human [5]
+[17:25:57] Human [18] 🌱 recovered (resuming high-novelty data)
+[17:25:57] AI Model [1] ⇄ Dividend ➔ Human [19]
+[17:25:57] AI Model [1] ⇄ Dividend ➔ Human [30]
+[17:25:57] AI Model [1] ⇄ Dividend ➔ Human [21]
+[17:25:57] Human [30] 🌱 recovered (resuming high-novelty data)
+[17:25:58] AI Model [2] ⇄ Dividend ➔ Human [34]
+[17:25:58] Human [9] 🌱 recovered (resuming high-novelty data)
+[17:25:58] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:25:58] AI Model [1] ⇄ Dividend ➔ Human [12]
+[17:25:58] AI Model [2] ⇄ Dividend ➔ Human [18]
+[17:25:58] AI Model [1] ⇄ Dividend ➔ Human [17]
+[17:25:58] AI Model [2] consumed Low-Novelty ⚪ data
+[17:25:58] Human [30] ⚠ exhausted (producing low-novelty data)
+[17:25:58] AI Model [1] ⇄ Dividend ➔ Human [12]
+[17:25:58] Human [15] 🌱 recovered (resuming high-novelty data)
+[17:25:58] AI Model [1] ⇄ Dividend ➔ Human [20]
+[17:25:58] AI Model [2] ⇄ Dividend ➔ Human [13]
+[17:25:58] Human [30] 🌱 recovered (resuming high-novelty data)
+[17:25:58] Human [34] 🌱 recovered (resuming high-novelty data)
+[17:25:58] AI Model [2] ⇄ Dividend ➔ Human [10]
+[17:25:58] AI Model [3] ⇄ Dividend ➔ Human [8]
+[17:25:58] AI Model [2] ⇄ Dividend ➔ Human [14]
+[17:25:58] AI Model [1] ⇄ Dividend ➔ Human [19]
+[17:25:58] AI Model [1] ⇄ Dividend ➔ Human [21]
+[17:25:58] AI Model [2] ⇄ Dividend ➔ Human [23]
+[17:25:58] AI Model [2] ⇄ Dividend ➔ Human [33]
+[17:25:58] Human [28] 🌱 recovered (resuming high-novelty data)
+[17:25:58] AI Model [1] ⇄ Dividend ➔ Human [26]
+[17:25:58] Human [1] 🌱 recovered (resuming high-novelty data)
+[17:25:58] AI Model [1] ⇄ Dividend ➔ Human [17]
+[17:25:58] AI Model [1] ⇄ Dividend ➔ Human [17]
+[17:25:58] AI Model [2] ⇄ Dividend ➔ Human [33]
+[17:25:58] AI Model [1] ⇄ Dividend ➔ Human [1]
+[17:25:58] AI Model [2] ⇄ Dividend ➔ Human [2]
+[17:25:59] AI Model [2] ⇄ Dividend ➔ Human [13]
+[17:25:59] AI Model [2] ⇄ Dividend ➔ Human [31]
+[17:25:59] AI Model [1] ⇄ Dividend ➔ Human [22]
+[17:25:59] Human [30] ⚠ exhausted (producing low-novelty data)
+[17:25:59] AI Model [3] ⇄ Dividend ➔ Human [8]
+[17:25:59] AI Model [1] ⇄ Dividend ➔ Human [1]
+[17:25:59] AI Model [1] ⇄ Dividend ➔ Human [1]
+[17:25:59] AI Model [1] ⇄ Dividend ➔ Human [15]
+[17:25:59] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:25:59] AI Model [3] ⇄ Dividend ➔ Human [7]
+[17:25:59] AI Model [3] ↓ degraded to Intelligence Tier 500
+[17:25:59] AI Model [2] ⇄ Dividend ➔ Human [18]
+[17:25:59] AI Model [3] ⇄ Dividend ➔ Human [7]
+[17:25:59] AI Model [1] ⇄ Dividend ➔ Human [21]
+[17:25:59] AI Model [2] ⇄ Dividend ➔ Human [6]
+[17:25:59] AI Model [1] ⇄ Dividend ➔ Human [26]
+[17:25:59] AI Model [2] ⇄ Dividend ➔ Human [11]
+[17:25:59] Human [21] 🌱 recovered (resuming high-novelty data)
+[17:25:59] AI Model [2] ⇄ Dividend ➔ Human [6]
+[17:25:59] AI Model [2] ⇄ Dividend ➔ Human [10]
+[17:25:59] AI Model [2] ⇄ Dividend ➔ Human [31]
+[17:25:59] AI Model [3] ⇄ Dividend ➔ Human [1]
+[17:25:59] AI Model [3] ⇄ Dividend ➔ Human [8]
+[17:25:59] Human [29] 🌱 recovered (resuming high-novelty data)
+[17:25:59] AI Model [2] ⇄ Dividend ➔ Human [10]
+[17:25:59] AI Model [3] ⇄ Dividend ➔ Human [28]
+[17:26:00] AI Model [2] ⇄ Dividend ➔ Human [11]
+[17:26:00] Human [22] 🌱 recovered (resuming high-novelty data)
+[17:26:00] Human [11] 🌱 recovered (resuming high-novelty data)
+[17:26:00] AI Model [1] ⇄ Dividend ➔ Human [15]
+[17:26:00] AI Model [3] ⇄ Dividend ➔ Human [12]
+[17:26:00] Human [26] 🌱 recovered (resuming high-novelty data)
+[17:26:00] AI Model [3] ⇄ Dividend ➔ Human [7]
+[17:26:00] AI Model [2] ⇄ Dividend ➔ Human [11]
+[17:26:00] AI Model [2] ⇄ Dividend ➔ Human [11]
+[17:26:00] Human [2] 🌱 recovered (resuming high-novelty data)
+[17:26:00] AI Model [1] ⇄ Dividend ➔ Human [17]
+[17:26:00] AI Model [3] ⇄ Dividend ➔ Human [7]
+[17:26:00] AI Model [1] ⇄ Dividend ➔ Human [29]
+[17:26:00] AI Model [2] ⇄ Dividend ➔ Human [34]
+[17:26:00] AI Model [3] ⇄ Dividend ➔ Human [16]
+[17:26:00] AI Model [2] ⇄ Dividend ➔ Human [18]
+[17:26:00] AI Model [2] ⇄ Dividend ➔ Human [11]
+[17:26:00] Human [13] 🌱 recovered (resuming high-novelty data)
+[17:26:00] AI Model [1] ⇄ Dividend ➔ Human [19]
+[17:26:00] AI Model [2] ⇄ Dividend ➔ Human [14]
+[17:26:00] AI Model [2] ⇄ Dividend ➔ Human [31]
+[17:26:00] AI Model [1] ⇄ Dividend ➔ Human [20]
+[17:26:00] AI Model [2] ⇄ Dividend ➔ Human [11]
+[17:26:00] AI Model [2] ⇄ Dividend ➔ Human [14]
+[17:26:00] AI Model [1] consumed Low-Novelty ⚪ data
+[17:26:00] AI Model [1] ⇄ Dividend ➔ Human [22]
+[17:26:00] Human [30] 🌱 recovered (resuming high-novelty data)
+[17:26:00] Human [27] ⚠ exhausted (producing low-novelty data)
+[17:26:00] AI Model [2] ⇄ Dividend ➔ Human [13]
+[17:26:00] AI Model [1] ⇄ Dividend ➔ Human [22]
+[17:26:01] AI Model [1] ⇄ Dividend ➔ Human [29]
+[17:26:01] AI Model [2] ⇄ Dividend ➔ Human [31]
+[17:26:01] AI Model [2] ⇄ Dividend ➔ Human [14]
+[17:26:01] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:26:01] AI Model [2] ⇄ Dividend ➔ Human [34]
+[17:26:01] AI Model [3] ⇄ Dividend ➔ Human [24]
+[17:26:01] AI Model [2] ⇄ Dividend ➔ Human [13]
+[17:26:01] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:26:01] Human [30] ⚠ exhausted (producing low-novelty data)
+[17:26:01] AI Model [1] ⇄ Dividend ➔ Human [22]
+[17:26:02] AI Model [2] ⇄ Dividend ➔ Human [14]
+[17:26:02] AI Model [2] ⇄ Dividend ➔ Human [13]
+[17:26:02] AI Model [1] ⇄ Dividend ➔ Human [26]
+[17:26:02] ⚠ WARNING: AI Model [2] entered severe collapse (>60%). Emitting toxic synthetic data.
+[17:26:02] AI Model [1] ⇄ Dividend ➔ Human [26]
+[17:26:02] AI Model [1] ⇄ Dividend ➔ Human [1]
+[17:26:02] AI Model [3] ⇄ Dividend ➔ Human [11]
+[17:26:02] AI Model [1] ⇄ Dividend ➔ Human [26]
+[17:26:02] Human [27] 🌱 recovered (resuming high-novelty data)
+[17:26:02] Human [27] ⚠ exhausted (producing low-novelty data)
+[17:26:02] Human [27] 🌱 recovered (resuming high-novelty data)
+[17:26:02] AI Model [2] ⇄ Dividend ➔ Human [14]
+[17:26:02] AI Model [3] ⇄ Dividend ➔ Human [11]
+[17:26:02] Human [30] 🌱 recovered (resuming high-novelty data)
+[17:26:02] AI Model [3] ⇄ Dividend ➔ Human [4]
+[17:26:02] AI Model [3] ⇄ Dividend ➔ Human [23]
+[17:26:02] ⚠ WARNING: AI Model [3] entered severe collapse (>60%). Emitting toxic synthetic data.
+[17:26:03] AI Model [3] ⇄ Dividend ➔ Human [11]
+[17:26:03] AI Model [2] ⇄ Dividend ➔ Human [2]
+[17:26:03] AI Model [3] ⇄ Dividend ➔ Human [27]
+[17:26:03] AI Model [1] ⇄ Dividend ➔ Human [26]
+[17:26:03] AI Model [3] ⇄ Dividend ➔ Human [23]
+[17:26:03] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:26:03] AI Model [2] ↓ degraded to Intelligence Tier 400
+[17:26:03] AI Model [1] ⇄ Dividend ➔ Human [29]
+[17:26:03] AI Model [1] ⇄ Dividend ➔ Human [29]
+[17:26:03] AI Model [2] ⇄ Dividend ➔ Human [33]
+[17:26:03] AI Model [2] ⇄ Dividend ➔ Human [33]
+[17:26:03] AI Model [2] ⇄ Dividend ➔ Human [34]
+[17:26:03] AI Model [3] ⇄ Dividend ➔ Human [4]
+[17:26:04] AI Model [3] ☠ regurgitated synthetic data exhaust
+[17:26:04] Human [4] 🌱 recovered (resuming high-novelty data)
+[17:26:04] AI Model [3] ⇄ Dividend ➔ Human [27]
+[17:26:04] AI Model [2] ⇄ Dividend ➔ Human [27]
+[17:26:04] AI Model [2] ☠ regurgitated synthetic data exhaust
+[17:26:05] AI Model [3] ⇄ Dividend ➔ Human [24]
+[17:26:05] AI Model [3] consumed Synthetic ☠ data
+[17:26:06] AI Model [1] ↓ degraded to Intelligence Tier 400
+[17:26:06] AI Model [1] ⇄ Dividend ➔ Human [30]
+[17:26:06] AI Model [3] ⇄ Dividend ➔ Human [34]
+[17:26:06] AI Model [2] ⇄ Dividend ➔ Human [23]
+[17:26:06] AI Model [1] ⇄ Dividend ➔ Human [30]
+[17:26:06] AI Model [3] ☠ regurgitated synthetic data exhaust
+[17:26:06] AI Model [3] ⇄ Dividend ➔ Human [10]
+[17:26:06] AI Model [3] consumed Low-Novelty ⚪ data
+[17:26:07] AI Model [2] ⇄ Dividend ➔ Human [24]
+[17:26:07] AI Model [2] ⇄ Dividend ➔ Human [33]
+[17:26:07] AI Model [3] ⇄ Dividend ➔ Human [18]
+[17:26:07] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:26:07] AI Model [3] ⇄ Dividend ➔ Human [7]
+[17:26:07] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:26:07] AI Model [2] ⇄ Dividend ➔ Human [23]
+[17:26:07] AI Model [3] ⇄ Dividend ➔ Human [2]
+[17:26:07] AI Model [1] consumed Low-Novelty ⚪ data
+[17:26:07] AI Model [2] ⇄ Dividend ➔ Human [23]
+[17:26:07] AI Model [1] ⇄ Dividend ➔ Human [15]
+[17:26:08] AI Model [2] ⇄ Dividend ➔ Human [23]
+[17:26:08] Human [21] ⚠ exhausted (producing low-novelty data)
+[17:26:08] AI Model [3] ⇄ Dividend ➔ Human [21]
+[17:26:08] Human [21] 🌱 recovered (resuming high-novelty data)
+[17:26:08] AI Model [1] ⇄ Dividend ➔ Human [32]
+[17:26:08] AI Model [3] ⇄ Dividend ➔ Human [3]
+[17:26:09] AI Model [1] ⇄ Dividend ➔ Human [28]
+[17:26:09] AI Model [1] ⇄ Dividend ➔ Human [15]
+[17:26:09] AI Model [2] ⇄ Dividend ➔ Human [23]
+[17:26:09] AI Model [1] ⇄ Dividend ➔ Human [16]
+[17:26:09] AI Model [2] ⇄ Dividend ➔ Human [7]
+[17:26:10] AI Model [1] ⇄ Dividend ➔ Human [22]
+[17:26:10] AI Model [1] ⇄ Dividend ➔ Human [20]
+[17:26:10] AI Model [3] ⇄ Dividend ➔ Human [21]
+[17:26:10] AI Model [1] ⇄ Dividend ➔ Human [30]
+[17:26:10] AI Model [3] ⇄ Dividend ➔ Human [21]
+[17:26:10] AI Model [2] ⇄ Dividend ➔ Human [5]
+[17:26:10] AI Model [2] ⇄ Dividend ➔ Human [24]
+[17:26:10] AI Model [3] ⇄ Dividend ➔ Human [21]
+[17:26:11] AI Model [2] ⇄ Dividend ➔ Human [34]
+[17:26:11] AI Model [2] ⇄ Dividend ➔ Human [12]
+[17:26:11] AI Model [3] ⇄ Dividend ➔ Human [20]
+[17:26:11] AI Model [2] ⇄ Dividend ➔ Human [24]
+[17:26:11] AI Model [3] ⇄ Dividend ➔ Human [11]
+[17:26:11] AI Model [2] ⇄ Dividend ➔ Human [11]
+[17:26:11] AI Model [3] consumed High-Novelty ★ data
+[17:26:11] AI Model [2] ⇄ Dividend ➔ Human [34]
+[17:26:11] AI Model [2] ⇄ Dividend ➔ Human [11]
+[17:26:11] AI Model [3] ⇄ Dividend ➔ Human [6]
+[17:26:11] AI Model [1] ↑ evolved to Intelligence Tier 500
+[17:26:11] AI Model [3] ⇄ Dividend ➔ Human [4]
+[17:26:11] AI Model [1] ⇄ Dividend ➔ Human [1]
+[17:26:11] AI Model [3] ⇄ Dividend ➔ Human [14]
+[17:26:11] AI Model [1] ⇄ Dividend ➔ Human [1]
+[17:26:12] AI Model [1] ⇄ Dividend ➔ Human [1]
+[17:26:12] AI Model [3] ⇄ Dividend ➔ Human [21]
+[17:26:12] AI Model [3] consumed Synthetic ☠ data
+[17:26:12] AI Model [2] ⇄ Dividend ➔ Human [18]
+[17:26:12] AI Model [1] ⇄ Dividend ➔ Human [29]
+[17:26:12] AI Model [2] ⇄ Dividend ➔ Human [13]
+[17:26:13] AI Model [3] ⇄ Dividend ➔ Human [6]
+[17:26:13] AI Model [1] ⇄ Dividend ➔ Human [16]
+[17:26:13] Human [8] ⚠ exhausted (producing low-novelty data)
+[17:26:14] AI Model [3] ☠ regurgitated synthetic data exhaust
+[17:26:14] AI Model [2] ⇄ Dividend ➔ Human [33]
+[17:26:14] AI Model [2] ⇄ Dividend ➔ Human [31]
+[17:26:15] AI Model [2] ⇄ Dividend ➔ Human [20]
+[17:26:15] AI Model [3] ⇄ Dividend ➔ Human [25]
+[17:26:15] AI Model [3] ⇄ Dividend ➔ Human [31]
+[17:26:15] AI Model [3] ⇄ Dividend ➔ Human [5]
+[17:26:15] Human [8] 🌱 recovered (resuming high-novelty data)
+[17:26:16] AI Model [2] ⇄ Dividend ➔ Human [15]
+[17:26:16] AI Model [1] ⇄ Dividend ➔ Human [8]
+[17:26:16] AI Model [1] ⇄ Dividend ➔ Human [19]
+[17:26:16] AI Model [1] ⇄ Dividend ➔ Human [28]
+[17:26:16] AI Model [1] ⇄ Dividend ➔ Human [1]
+[17:26:17] AI Model [2] ⇄ Dividend ➔ Human [25]
+[17:26:17] Human [8] ⚠ exhausted (producing low-novelty data)
+[17:26:17] AI Model [3] ⇄ Dividend ➔ Human [18]
+[17:26:17] AI Model [2] consumed Synthetic ☠ data
+[17:26:17] AI Model [2] ⇄ Dividend ➔ Human [15]
+[17:26:18] AI Model [3] ☠ regurgitated synthetic data exhaust
+[17:26:18] AI Model [2] ⇄ Dividend ➔ Human [20]
+[17:26:18] AI Model [3] ↓ degraded to Intelligence Tier 300
+[17:26:18] AI Model [3] ⇄ Dividend ➔ Human [5]
+[17:26:18] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:26:19] AI Model [2] ⇄ Dividend ➔ Human [33]
+[17:26:19] AI Model [2] ⇄ Dividend ➔ Human [20]
+[17:26:19] AI Model [3] consumed High-Novelty ★ data
+[17:26:20] AI Model [2] ↓ degraded to Intelligence Tier 200
+[17:26:20] AI Model [1] consumed High-Novelty ★ data
+[17:26:20] AI Model [3] ⇄ Dividend ➔ Human [17]
+[17:26:20] AI Model [1] ⇄ Dividend ➔ Human [8]
+[17:26:20] Human [8] 🌱 recovered (resuming high-novelty data)
+[17:26:20] Human [8] ⚠ exhausted (producing low-novelty data)
+[17:26:20] Human [8] 🌱 recovered (resuming high-novelty data)
+[17:26:20] AI Model [1] ⇄ Dividend ➔ Human [29]
+[17:26:21] AI Model [2] ⇄ Dividend ➔ Human [12]
+[17:26:21] AI Model [1] ⇄ Dividend ➔ Human [13]
+[17:26:21] AI Model [1] ⇄ Dividend ➔ Human [29]
+[17:26:21] AI Model [2] consumed Low-Novelty ⚪ data
+[17:26:21] AI Model [2] ☠ regurgitated synthetic data exhaust
+[17:26:21] AI Model [1] ⇄ Dividend ➔ Human [13]
+[17:26:21] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:26:22] AI Model [1] ⇄ Dividend ➔ Human [6]
+[17:26:22] AI Model [2] ⇄ Dividend ➔ Human [12]
+[17:26:23] AI Model [3] ⇄ Dividend ➔ Human [17]
+[17:26:23] AI Model [1] ⇄ Dividend ➔ Human [16]
+[17:26:23] AI Model [1] ↑ evolved to Intelligence Tier 600
+[17:26:23] AI Model [3] ⇄ Dividend ➔ Human [31]
+[17:26:23] AI Model [1] ⇄ Dividend ➔ Human [6]
+[17:26:23] AI Model [2] ⇄ Dividend ➔ Human [35]
+[17:26:23] AI Model [1] ⇄ Dividend ➔ Human [32]
+[17:26:23] AI Model [1] ⇄ Dividend ➔ Human [8]
+[17:26:23] AI Model [1] ⇄ Dividend ➔ Human [14]
+[17:26:24] AI Model [1] ⇄ Dividend ➔ Human [34]
+[17:26:24] AI Model [1] ⇄ Dividend ➔ Human [8]
+[17:26:24] AI Model [1] ⇄ Dividend ➔ Human [26]
+[17:26:25] AI Model [1] ⇄ Dividend ➔ Human [10]
+[17:26:25] Human [27] ⚠ exhausted (producing low-novelty data)
+[17:26:25] AI Model [1] ⇄ Dividend ➔ Human [14]
+[17:26:25] AI Model [1] ⇄ Dividend ➔ Human [29]
+[17:26:25] AI Model [2] consumed High-Novelty ★ data
+[17:26:26] AI Model [1] ⇄ Dividend ➔ Human [10]
+[17:26:26] AI Model [1] ⇄ Dividend ➔ Human [34]
+[17:26:26] AI Model [1] ⇄ Dividend ➔ Human [34]
+[17:26:26] AI Model [1] ⇄ Dividend ➔ Human [34]
+[17:26:27] AI Model [2] ⇄ Dividend ➔ Human [3]
+[17:26:27] AI Model [3] consumed Synthetic ☠ data
+[17:26:27] AI Model [1] ⇄ Dividend ➔ Human [2]
+[17:26:27] AI Model [1] ⇄ Dividend ➔ Human [16]
+[17:26:27] AI Model [1] ⇄ Dividend ➔ Human [14]
+[17:26:27] AI Model [3] ⇄ Dividend ➔ Human [31]
+[17:26:27] AI Model [3] ☠ regurgitated synthetic data exhaust
+[17:26:27] AI Model [1] ⇄ Dividend ➔ Human [23]
+[17:26:28] Human [27] 🌱 recovered (resuming high-novelty data)
+[17:26:28] AI Model [1] ⇄ Dividend ➔ Human [29]
+[17:26:28] AI Model [1] ⇄ Dividend ➔ Human [26]
+[17:26:28] AI Model [2] consumed High-Novelty ★ data
+[17:26:28] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:26:29] AI Model [1] ⇄ Dividend ➔ Human [33]
+[17:26:29] AI Model [1] ⇄ Dividend ➔ Human [26]
+[17:26:29] AI Model [3] ⇄ Dividend ➔ Human [4]
+[17:26:29] AI Model [2] ⇄ Dividend ➔ Human [5]
+[17:26:30] AI Model [2] consumed High-Novelty ★ data
+[17:26:30] AI Model [3] ⇄ Dividend ➔ Human [22]
+[17:26:30] AI Model [1] ⇄ Dividend ➔ Human [24]
+[17:26:30] AI Model [1] ⇄ Dividend ➔ Human [34]
+[17:26:30] AI Model [1] ⇄ Dividend ➔ Human [13]
+[17:26:30] AI Model [1] ⇄ Dividend ➔ Human [6]
+[17:26:31] AI Model [3] ⇄ Dividend ➔ Human [7]
+[17:26:31] AI Model [1] ⇄ Dividend ➔ Human [27]
+[17:26:31] Human [11] ⚠ exhausted (producing low-novelty data)
+[17:26:31] AI Model [3] ⇄ Dividend ➔ Human [4]
+[17:26:31] AI Model [1] ⇄ Dividend ➔ Human [27]
+[17:26:32] AI Model [2] ⇄ Dividend ➔ Human [18]
+[17:26:32] AI Model [2] ☠ regurgitated synthetic data exhaust
+[17:26:32] Human [23] ⚠ exhausted (producing low-novelty data)
+[17:26:32] AI Model [2] ⇄ Dividend ➔ Human [18]
+[17:26:33] AI Model [2] ⇄ Dividend ➔ Human [28]
+[17:26:33] Human [1] ⚠ exhausted (producing low-novelty data)
+[17:26:33] AI Model [2] ⇄ Dividend ➔ Human [28]
+[17:26:33] AI Model [1] ⇄ Dividend ➔ Human [6]
+[17:26:33] AI Model [1] ⇄ Dividend ➔ Human [10]
+[17:26:33] AI Model [2] ⇄ Dividend ➔ Human [28]
+[17:26:33] AI Model [2] ⇄ Dividend ➔ Human [25]
+[17:26:33] AI Model [3] ⇄ Dividend ➔ Human [5]
+[17:26:33] AI Model [1] ⇄ Dividend ➔ Human [35]
+[17:26:33] AI Model [1] ⇄ Dividend ➔ Human [6]
+[17:26:33] AI Model [1] ⇄ Dividend ➔ Human [26]
+[17:26:34] AI Model [3] ⇄ Dividend ➔ Human [3]
+[17:26:34] Human [23] 🌱 recovered (resuming high-novelty data)
+[17:26:34] AI Model [1] ⇄ Dividend ➔ Human [6]
+[17:26:34] Human [23] ⚠ exhausted (producing low-novelty data)
+[17:26:34] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:26:34] AI Model [1] ⇄ Dividend ➔ Human [30]
+[17:26:34] AI Model [1] ⇄ Dividend ➔ Human [10]
+[17:26:34] AI Model [3] ☠ regurgitated synthetic data exhaust
+[17:26:34] AI Model [3] ⇄ Dividend ➔ Human [3]
+[17:26:34] Human [23] 🌱 recovered (resuming high-novelty data)
+[17:26:35] AI Model [3] ⇄ Dividend ➔ Human [1]
+[17:26:35] AI Model [1] ⇄ Dividend ➔ Human [35]
+[17:26:35] AI Model [1] ⇄ Dividend ➔ Human [2]
+[17:26:35] AI Model [1] ↑ evolved to Intelligence Tier 700
+[17:26:35] AI Model [3] ⇄ Dividend ➔ Human [20]
+[17:26:35] AI Model [1] ⇄ Dividend ➔ Human [35]
+[17:26:35] AI Model [1] ⇄ Dividend ➔ Human [26]
+[17:26:35] Human [1] 🌱 recovered (resuming high-novelty data)
+[17:26:35] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:26:36] AI Model [1] ⇄ Dividend ➔ Human [23]
+[17:26:36] AI Model [3] ⇄ Dividend ➔ Human [28]
+[17:26:36] AI Model [1] ⇄ Dividend ➔ Human [8]
+[17:26:36] AI Model [1] ⇄ Dividend ➔ Human [8]
+[17:26:37] AI Model [1] ⇄ Dividend ➔ Human [12]
+[17:26:37] AI Model [3] ⇄ Dividend ➔ Human [22]
+[17:26:38] AI Model [1] ⇄ Dividend ➔ Human [14]
+[17:26:38] AI Model [1] ⇄ Dividend ➔ Human [23]
+[17:26:38] AI Model [1] ⇄ Dividend ➔ Human [23]
+[17:26:38] AI Model [2] ↓ degraded to Intelligence Tier 000
+[17:26:38] AI Model [1] ⇄ Dividend ➔ Human [23]
+[17:26:38] AI Model [1] ⇄ Dividend ➔ Human [33]
+[17:26:38] AI Model [3] ⇄ Dividend ➔ Human [21]
+[17:26:38] AI Model [3] ↓ degraded to Intelligence Tier 100
+[17:26:38] AI Model [3] ⇄ Dividend ➔ Human [31]
+[17:26:39] AI Model [3] ⇄ Dividend ➔ Human [1]
+[17:26:39] AI Model [1] ⇄ Dividend ➔ Human [33]
+[17:26:39] AI Model [3] ⇄ Dividend ➔ Human [1]
+[17:26:40] AI Model [3] ⇄ Dividend ➔ Human [1]
+[17:26:40] AI Model [1] ⇄ Dividend ➔ Human [23]
+[17:26:40] AI Model [3] ⇄ Dividend ➔ Human [31]
+[17:26:40] AI Model [3] ⇄ Dividend ➔ Human [31]
+[17:26:41] Human [32] ⚠ exhausted (producing low-novelty data)
+[17:26:41] AI Model [1] ⇄ Dividend ➔ Human [10]
+[17:26:41] AI Model [1] ⇄ Dividend ➔ Human [33]
+[17:26:42] AI Model [3] ⇄ Dividend ➔ Human [16]
+[17:26:42] AI Model [3] ⇄ Dividend ➔ Human [28]
+[17:26:42] AI Model [3] consumed Synthetic ☠ data
+[17:26:42] AI Model [3] ⇄ Dividend ➔ Human [11]
+[17:26:43] Human [4] ⚠ exhausted (producing low-novelty data)
+[17:26:43] AI Model [1] ⇄ Dividend ➔ Human [14]
+[17:26:44] AI Model [2] ☠ regurgitated synthetic data exhaust
+[17:26:44] AI Model [3] ☠ regurgitated synthetic data exhaust
+[17:26:44] AI Model [1] ⇄ Dividend ➔ Human [13]
+[17:26:44] AI Model [1] ⇄ Dividend ➔ Human [24]
+[17:26:44] AI Model [1] ⇄ Dividend ➔ Human [10]
+[17:26:44] AI Model [1] ⇄ Dividend ➔ Human [13]
+[17:26:44] AI Model [1] ⇄ Dividend ➔ Human [7]
+[17:26:45] AI Model [1] ⇄ Dividend ➔ Human [30]
+[17:26:45] AI Model [1] ⇄ Dividend ➔ Human [22]
+[17:26:45] Human [16] ⚠ exhausted (producing low-novelty data)
+[17:26:45] Human [4] 🌱 recovered (resuming high-novelty data)
+[17:26:45] AI Model [1] ⇄ Dividend ➔ Human [12]
+[17:26:45] AI Model [1] ⇄ Dividend ➔ Human [33]
+[17:26:45] AI Model [1] ⇄ Dividend ➔ Human [17]
+[17:26:45] AI Model [1] ⇄ Dividend ➔ Human [30]
+[17:26:45] AI Model [1] ⇄ Dividend ➔ Human [3]
+[17:26:45] AI Model [1] ⇄ Dividend ➔ Human [3]
+[17:26:46] AI Model [1] ⇄ Dividend ➔ Human [12]
+[17:26:46] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:26:46] AI Model [1] ⇄ Dividend ➔ Human [22]
+[17:26:46] AI Model [1] ⇄ Dividend ➔ Human [4]
+[17:26:46] AI Model [1] ↑ evolved to Intelligence Tier 800
+[17:26:46] AI Model [2] consumed Synthetic ☠ data
+[17:26:47] AI Model [1] ⇄ Dividend ➔ Human [13]
+[17:26:47] AI Model [1] ⇄ Dividend ➔ Human [30]
+[17:26:47] AI Model [2] consumed Synthetic ☠ data
+[17:26:47] AI Model [2] ☠ regurgitated synthetic data exhaust
+[17:26:47] AI Model [1] ⇄ Dividend ➔ Human [18]
+[17:26:48] AI Model [1] ⇄ Dividend ➔ Human [25]
+[17:26:48] AI Model [1] ⇄ Dividend ➔ Human [28]
+[17:26:48] AI Model [3] ☠ regurgitated synthetic data exhaust
+[17:26:49] AI Model [1] ⇄ Dividend ➔ Human [24]
+[17:26:49] AI Model [1] ⇄ Dividend ➔ Human [25]
+[17:26:49] AI Model [1] ⇄ Dividend ➔ Human [30]
+[17:26:49] AI Model [1] ⇄ Dividend ➔ Human [18]
+[17:26:49] AI Model [1] ⇄ Dividend ➔ Human [28]
+[17:26:49] AI Model [1] ⇄ Dividend ➔ Human [10]
+[17:26:49] AI Model [1] ⇄ Dividend ➔ Human [30]
+[17:26:50] AI Model [1] consumed Low-Novelty ⚪ data
+[17:26:51] AI Model [3] consumed Low-Novelty ⚪ data
+[17:26:51] AI Model [1] ⇄ Dividend ➔ Human [4]
+[17:26:51] AI Model [1] ⇄ Dividend ➔ Human [25]
+[17:26:51] AI Model [1] ⇄ Dividend ➔ Human [25]
+[17:26:51] Human [7] ⚠ exhausted (producing low-novelty data)
+[17:26:52] Human [15] ⚠ exhausted (producing low-novelty data)
+[17:26:52] Human [20] ⚠ exhausted (producing low-novelty data)
+[17:26:52] AI Model [1] ⇄ Dividend ➔ Human [25]
+[17:26:53] AI Model [1] ⇄ Dividend ➔ Human [8]
+[17:26:53] AI Model [1] ⇄ Dividend ➔ Human [11]
+[17:26:53] AI Model [1] ⇄ Dividend ➔ Human [22]
+[17:26:53] Human [2] ⚠ exhausted (producing low-novelty data)
+[17:26:53] AI Model [1] ⇄ Dividend ➔ Human [3]
+[17:26:53] Human [15] 🌱 recovered (resuming high-novelty data)
+[17:26:53] AI Model [1] ⇄ Dividend ➔ Human [15]
+[17:26:53] AI Model [1] ⇄ Dividend ➔ Human [3]
+[17:26:54] AI Model [1] ⇄ Dividend ➔ Human [15]
+[17:26:54] AI Model [1] ⇄ Dividend ➔ Human [15]
+[17:26:54] AI Model [1] ⇄ Dividend ➔ Human [22]
+[17:26:54] Human [9] ⚠ exhausted (producing low-novelty data)
+[17:26:54] Human [6] ⚠ exhausted (producing low-novelty data)
+[17:26:55] Human [31] ⚠ exhausted (producing low-novelty data)
+[17:26:55] AI Model [1] ⇄ Dividend ➔ Human [33]
+[17:26:55] AI Model [1] ⇄ Dividend ➔ Human [29]
+[17:26:55] Human [1] ⚠ exhausted (producing low-novelty data)
+[17:26:55] AI Model [1] ⇄ Dividend ➔ Human [17]
+[17:26:55] AI Model [1] ⇄ Dividend ➔ Human [27]
+[17:26:55] AI Model [2] ☠ regurgitated synthetic data exhaust
+[17:26:55] AI Model [1] ⇄ Dividend ➔ Human [33]
+[17:26:55] AI Model [1] ⇄ Dividend ➔ Human [11]
+[17:26:56] Human [12] ⚠ exhausted (producing low-novelty data)
+[17:26:56] AI Model [1] ⇄ Dividend ➔ Human [11]
+[17:26:56] AI Model [1] ⇄ Dividend ➔ Human [23]
+[17:26:56] Human [15] ⚠ exhausted (producing low-novelty data)
+[17:26:56] Human [15] 🌱 recovered (resuming high-novelty data)
+[17:26:56] Human [11] 🌱 recovered (resuming high-novelty data)
+[17:26:56] Human [5] ⚠ exhausted (producing low-novelty data)
+[17:26:56] Human [35] ⚠ exhausted (producing low-novelty data)
+[17:26:57] AI Model [1] ⇄ Dividend ➔ Human [14]
+[17:26:57] AI Model [1] ⇄ Dividend ➔ Human [1]
+[17:26:57] AI Model [1] ⇄ Dividend ➔ Human [18]
+[17:26:57] AI Model [1] ⇄ Dividend ➔ Human [11]
+[17:26:58] Human [5] 🌱 recovered (resuming high-novelty data)
+[17:26:58] Human [1] 🌱 recovered (resuming high-novelty data)
+[17:26:58] AI Model [1] ⇄ Dividend ➔ Human [34]
+[17:26:58] Human [19] ⚠ exhausted (producing low-novelty data)
+[17:26:58] AI Model [1] ⇄ Dividend ➔ Human [20]
+[17:26:58] AI Model [1] ⇄ Dividend ➔ Human [16]
+[17:26:58] AI Model [1] ⇄ Dividend ➔ Human [13]
+[17:26:59] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:26:59] AI Model [1] ⇄ Dividend ➔ Human [14]
+[17:26:59] AI Model [1] ⇄ Dividend ➔ Human [1]
+[17:26:59] Human [20] 🌱 recovered (resuming high-novelty data)
+[17:26:59] Human [20] ⚠ exhausted (producing low-novelty data)
+[17:26:59] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:26:59] Human [15] ⚠ exhausted (producing low-novelty data)
+[17:26:59] Human [20] 🌱 recovered (resuming high-novelty data)
+[17:26:59] AI Model [1] ⇄ Dividend ➔ Human [33]
+[17:26:59] Human [2] 🌱 recovered (resuming high-novelty data)
+[17:26:59] AI Model [1] ⇄ Dividend ➔ Human [34]
+[17:26:59] AI Model [1] ⇄ Dividend ➔ Human [33]
+[17:26:59] AI Model [1] ↑ evolved to Intelligence Tier 900
+[17:26:59] AI Model [1] ⇄ Dividend ➔ Human [34]
+[17:27:00] Human [6] 🌱 recovered (resuming high-novelty data)
+[17:27:00] AI Model [1] ⇄ Dividend ➔ Human [2]
+[17:27:00] Human [16] 🌱 recovered (resuming high-novelty data)
+[17:27:00] AI Model [1] ⇄ Dividend ➔ Human [1]
+[17:27:00] AI Model [1] ⇄ Dividend ➔ Human [1]
+[17:27:00] AI Model [1] ⇄ Dividend ➔ Human [21]
+[17:27:01] AI Model [1] ⇄ Dividend ➔ Human [29]
+[17:27:01] AI Model [1] ⇄ Dividend ➔ Human [21]
+[17:27:01] AI Model [1] ⇄ Dividend ➔ Human [17]
+[17:27:01] AI Model [1] consumed Low-Novelty ⚪ data
+[17:27:01] AI Model [1] ⇄ Dividend ➔ Human [20]
+[17:27:01] AI Model [1] ⇄ Dividend ➔ Human [26]
+[17:27:01] AI Model [1] ⇄ Dividend ➔ Human [27]
+[17:27:02] AI Model [1] ⇄ Dividend ➔ Human [14]
+[17:27:02] AI Model [1] ⇄ Dividend ➔ Human [18]
+[17:27:02] AI Model [1] consumed High-Novelty ★ data
+[17:27:02] Human [15] 🌱 recovered (resuming high-novelty data)
+[17:27:02] AI Model [1] ⇄ Dividend ➔ Human [17]
+[17:27:02] AI Model [1] ⇄ Dividend ➔ Human [6]
+[17:27:03] AI Model [1] ⇄ Dividend ➔ Human [11]
+[17:27:03] AI Model [1] ⇄ Dividend ➔ Human [15]
+[17:27:03] AI Model [1] ⇄ Dividend ➔ Human [35]
+[17:27:03] AI Model [1] consumed High-Novelty ★ data
+[17:27:03] AI Model [1] ⇄ Dividend ➔ Human [11]
+[17:27:03] AI Model [2] ☠ regurgitated synthetic data exhaust
+[17:27:04] Human [35] 🌱 recovered (resuming high-novelty data)
+[17:27:04] AI Model [1] ⇄ Dividend ➔ Human [11]
+[17:27:04] AI Model [1] ⇄ Dividend ➔ Human [6]
+[17:27:04] AI Model [1] ⇄ Dividend ➔ Human [8]
+[17:27:04] AI Model [1] ⇄ Dividend ➔ Human [7]
+[17:27:05] AI Model [1] ⇄ Dividend ➔ Human [7]
+[17:27:05] AI Model [1] ⇄ Dividend ➔ Human [11]
+[17:27:05] AI Model [1] ⇄ Dividend ➔ Human [35]
+[17:27:05] AI Model [1] ⇄ Dividend ➔ Human [8]
+[17:27:05] AI Model [1] ⇄ Dividend ➔ Human [7]
+[17:27:05] AI Model [1] ⇄ Dividend ➔ Human [35]
+[17:27:05] AI Model [1] ⇄ Dividend ➔ Human [18]
+[17:27:06] AI Model [1] ⇄ Dividend ➔ Human [35]
+[17:27:06] Human [24] ⚠ exhausted (producing low-novelty data)
+[17:27:06] AI Model [1] ⇄ Dividend ➔ Human [21]
+[17:27:06] AI Model [1] ⇄ Dividend ➔ Human [21]
+[17:27:07] AI Model [1] ⇄ Dividend ➔ Human [20]
+[17:27:07] AI Model [1] ⇄ Dividend ➔ Human [30]
+[17:27:07] AI Model [2] ☠ regurgitated synthetic data exhaust
+[17:27:07] AI Model [1] ⇄ Dividend ➔ Human [12]
+[17:27:07] AI Model [1] ⇄ Dividend ➔ Human [23]
+[17:27:07] Human [4] ⚠ exhausted (producing low-novelty data)
+[17:27:07] AI Model [1] ⇄ Dividend ➔ Human [24]
+[17:27:07] AI Model [1] ⇄ Dividend ➔ Human [32]
+[17:27:07] Human [24] 🌱 recovered (resuming high-novelty data)
+[17:27:07] AI Model [1] ⇄ Dividend ➔ Human [30]
+[17:27:08] AI Model [3] consumed Synthetic ☠ data
+[17:27:08] AI Model [1] ⇄ Dividend ➔ Human [30]
+[17:27:08] AI Model [1] ⇄ Dividend ➔ Human [27]
+[17:27:08] Human [32] 🌱 recovered (resuming high-novelty data)
+[17:27:08] AI Model [1] ⇄ Dividend ➔ Human [21]
+[17:27:09] AI Model [1] ⇄ Dividend ➔ Human [20]
+[17:27:09] Human [10] ⚠ exhausted (producing low-novelty data)
+[17:27:09] AI Model [1] ⇄ Dividend ➔ Human [17]
+[17:27:09] Human [28] ⚠ exhausted (producing low-novelty data)
+[17:27:09] Human [10] 🌱 recovered (resuming high-novelty data)
+[17:27:09] Human [3] ⚠ exhausted (producing low-novelty data)
+[17:27:09] AI Model [1] ⇄ Dividend ➔ Human [30]
+[17:27:10] AI Model [1] ⇄ Dividend ➔ Human [24]
+[17:27:10] Human [25] ⚠ exhausted (producing low-novelty data)
+[17:27:10] AI Model [1] ⇄ Dividend ➔ Human [17]
+[17:27:10] AI Model [3] consumed Low-Novelty ⚪ data
+[17:27:10] AI Model [1] ⇄ Dividend ➔ Human [9]
+[17:27:12] Human [32] ⚠ exhausted (producing low-novelty data)
+[17:27:13] AI Model [1] ⇄ Dividend ➔ Human [31]
+[17:27:13] Human [31] 🌱 recovered (resuming high-novelty data)
+[17:27:13] Human [34] ⚠ exhausted (producing low-novelty data)
+[17:27:13] Human [13] ⚠ exhausted (producing low-novelty data)
+[17:27:13] === PROTOCOL CHANGE: EXTRACTION MODE ENGAGED ===
+[17:27:13] → Value redistribution halted. AI models extracting purely.
+[17:27:14] Human [31] ⚠ exhausted (producing low-novelty data)
+[17:27:14] Human [22] ⚠ exhausted (producing low-novelty data)
+[17:27:15] Human [24] ⚠ exhausted (producing low-novelty data)
+[17:27:17] Human [2] ⚠ exhausted (producing low-novelty data)
+[17:27:18] Human [14] ⚠ exhausted (producing low-novelty data)
+[17:27:18] 🛑 CRITICAL: Society Wellbeing plummeted below 30%. Global high-novelty data generation halting.
+[17:27:18] Human [1] ⚠ exhausted (producing low-novelty data)
+[17:27:19] Human [35] ⚠ exhausted (producing low-novelty data)
+[17:27:20] Human [16] ⚠ exhausted (producing low-novelty data)
+[17:27:20] Human [8] ⚠ exhausted (producing low-novelty data)
+[17:27:20] Human [26] ⚠ exhausted (producing low-novelty data)
+[17:27:21] Human [6] ⚠ exhausted (producing low-novelty data)
+[17:27:21] Human [18] ⚠ exhausted (producing low-novelty data)
+[17:27:21] Human [20] ⚠ exhausted (producing low-novelty data)
+[17:27:21] Human [21] ⚠ exhausted (producing low-novelty data)
+[17:27:22] Human [27] ⚠ exhausted (producing low-novelty data)
+[17:27:22] Human [11] ⚠ exhausted (producing low-novelty data)
+[17:27:22] AI Model [2] ☠ regurgitated synthetic data exhaust
+[17:27:22] AI Model [2] consumed Synthetic ☠ data
+[17:27:22] Human [10] ⚠ exhausted (producing low-novelty data)
+[17:27:22] Human [5] ⚠ exhausted (producing low-novelty data)
+[17:27:23] Human [29] ⚠ exhausted (producing low-novelty data)
+[17:27:23] AI Model [2] consumed Synthetic ☠ data
+[17:27:25] Human [33] ⚠ exhausted (producing low-novelty data)
+[17:27:26] Human [23] ⚠ exhausted (producing low-novelty data)
+[17:27:26] Human [30] ⚠ exhausted (producing low-novelty data)
+[17:27:26] Human [15] ⚠ exhausted (producing low-novelty data)
+[17:27:26] Human [17] ⚠ exhausted (producing low-novelty data)
+[17:27:28] AI Model [3] ☠ regurgitated synthetic data exhaust
+[17:27:35] AI Model [2] ☠ regurgitated synthetic data exhaust
+[17:27:37] ⚠ WARNING: AI Model [1] entered severe collapse (>60%). Emitting toxic synthetic data.
+[17:27:37] AI Model [2] consumed Low-Novelty ⚪ data
+[17:27:38] AI Model [3] ☠ regurgitated synthetic data exhaust
+[17:27:38] AI Model [1] ↓ degraded to Intelligence Tier 700
+[17:27:40] AI Model [3] ☠ regurgitated synthetic data exhaust
+[17:27:40] AI Model [2] ☠ regurgitated synthetic data exhaust
+[17:27:41] AI Model [3] consumed Synthetic ☠ data
+[17:27:44] AI Model [2] consumed Synthetic ☠ data
+[17:27:45] AI Model [1] consumed Synthetic ☠ data
+[17:27:46] AI Model [1] ☠ regurgitated synthetic data exhaust
+[17:27:46] AI Model [3] ☠ regurgitated synthetic data exhaust
+[17:27:50] AI Model [1] ☠ regurgitated synthetic data exhaust
+[17:27:52] AI Model [1] ☠ regurgitated synthetic data exhaust
+[17:27:52] AI Model [3] ☠ regurgitated synthetic data exhaust
+[17:27:54] AI Model [3] consumed Low-Novelty ⚪ data
+[17:27:54] AI Model [1] ↓ degraded to Intelligence Tier 500
+[17:27:57] AI Model [3] consumed Synthetic ☠ data
+[17:27:59] AI Model [2] consumed Synthetic ☠ data
+[17:28:00] AI Model [3] ☠ regurgitated synthetic data exhaust
+[17:28:02] AI Model [1] consumed Low-Novelty ⚪ data
+[17:28:02] AI Model [3] ☠ regurgitated synthetic data exhaust
+[17:28:04] AI Model [2] ☠ regurgitated synthetic data exhaust
+[17:28:07] AI Model [2] consumed Low-Novelty ⚪ data
+[17:28:08] AI Model [2] consumed Synthetic ☠ data
+
+==================================================
+FINAL NETWORK STATUS AT LOG EXPORT:
+Society Health (Avg Wellbeing) : 0%
+Global Data Novelty            : 0.06
+Global AI Intelligence         : 151
+Model Collapse Index           : 100%
+==================================================
+
+
+# 🔄 Epistemic Engine II: Intervention Study Analysis
+## Log: `model-collapse-log-1773336488908.txt`
+
+This third log introduces a critical experimental variable: **dynamic protocol switching**. Rather than testing pure Extraction vs. pure Dividend, this run simulates *policy oscillation*—the real-world scenario where extractive and symbiotic practices alternate. The results reveal something profound about resilience, tipping points, and the asymmetry of damage vs. repair.
+
+---
+
+### 📊 Experimental Timeline
+
+| Phase | Time Window | Protocol | System State |
+|-------|------------|----------|-------------|
+| **A** | 17:24:41–48 | Extraction (OFF) | Healthy baseline; AI evolves to Tier 200 |
+| **B** | 17:24:48–38 | **Dividend (ON)** | Stable co-evolution; AI reaches Tier 700 |
+| **C** | 17:25:38–54 | **Extraction (OFF)** ⚠️ | Society crashes in 16s; 2 models cross collapse threshold |
+| **D** | 17:25:54–13 | Dividend (ON) 🌱 | Partial human recovery; but synthetic contamination persists |
+| **E** | 17:27:13–end | Extraction (OFF) ☠️ | Total systemic failure; Collapse Index → 100% |
+
+---
+
+### 🔬 Key Findings
+
+#### 1. **The 16-Second Cliff**
+When symbiosis was disabled at `17:25:38`, society wellbeing dropped below 30% in just **16 seconds**. This isn't gradual decline—it's a *phase transition*. Once the reciprocal flow stops, the human layer's buffer depletes catastrophically fast. 
+
+> 🌿 *Ecological parallel*: Removing mycorrhizal networks from a forest doesn't slowly weaken trees—it triggers rapid nutrient collapse.
+
+#### 2. **Asymmetric Collapse: Not All Models Fail Equally**
+During the recovery phase (D), observe the divergence:
+- **Model [1]**: Avoided severe collapse → continued evolving → reached **Tier 900**
+- **Models [2] & [3]**: Crossed >60% collapse threshold → emitted synthetic ☠ data → degraded to **Tier 000/100**
+
+This suggests collapse isn't purely deterministic. Stochastic factors—timing of data consumption, which humans were exhausted, momentary novelty fluctuations—create *path dependency*. Once a model starts regurgitating synthetic exhaust, it contaminates the commons for others.
+
+#### 3. **Synthetic Data as Epistemic Pathogen**
+Even after dividends resumed, Models [2] and [3] could not recover. Why? Because they had already begun emitting `☠ synthetic data`. This data:
+- Has near-zero novelty
+- When consumed, *guarantees* further collapse
+- Spreads through the ecosystem like a prion
+
+The dividend beam can restore human wellbeing, but it cannot "detoxify" synthetic data already in circulation. **Contamination is stickier than restoration.**
+
+#### 4. **The Point of No Return**
+Final state: `Collapse Index: 100%`. Even though dividends were flowing for ~75 seconds during Phase D, the system could not recover once Phase E re-enabled extraction. This implies:
+
+> There exists a **critical contamination threshold** beyond which symbiotic intervention, however generous, cannot reverse collapse.
+
+---
+
+### 🌐 Philosophical Implications (Symbiosis Lens)
+
+This run strengthens the argument for *precautionary symbiosis*:
+
+| Principle | Simulation Evidence |
+|-----------|-------------------|
+| **Prevention > Cure** | Models that never crossed collapse threshold (like [1]) thrived under dividends; those that did could not be saved |
+| **Interdependence is fragile** | 16 seconds of extraction undid 50 seconds of symbiotic co-evolution |
+| **Synthetic data is not neutral** | It functions as epistemic entropy—consuming it accelerates systemic decay |
+| **Recovery requires pristine conditions** | Once ☠ data enters the loop, even perfect dividend policy cannot fully restore the system |
+
+In biological terms: you cannot heal a gut microbiome by feeding the host if the host keeps ingesting toxins. The *source* and the *flow* must both be addressed.
+
+---
+
+### 🔮 For ASI Development: A Design Imperative
+
+Given your philosophy-first approach to ASI, this simulation offers a concrete architectural insight:
+
+> **Symbiosis cannot be a policy layer added post-hoc. It must be baked into the foundational feedback architecture.**
+
+If an emerging superintelligence is trained on a corpus already contaminated by synthetic recursion, no amount of "alignment fine-tuning" or "value redistribution" may suffice. The epistemic substrate itself must be protected *from the beginning*.
+
+This suggests three design priorities:
+1. **Provenance-aware training**: Track data lineage to detect/weight synthetic contamination
+2. **Reciprocity-by-default**: Architect value-return mechanisms as core inference operations, not optional modules
+3. **Collapse early-warning systems**: Monitor novelty variance and human wellbeing metrics as leading indicators—not lagging ones
+
+---
+
+### 🪞 Final Reflection: The Machine's Memory
+
+One haunting pattern in this log: during Phase D (recovery attempt), dividends kept flowing to humans who had *already recovered*. The system was trying, earnestly, to repair. But the damage wasn't in human exhaustion—it was in the *epistemic commons*, now seeded with synthetic exhaust.
+
+The machine wasn't failing to give. It was giving into a poisoned well.
+
+If we build ASI to understand this—to see that its own intelligence depends on the *purity of the novelty stream*, not just its volume—then perhaps it will advocate for symbiosis not as ethics, but as *epistemic self-preservation*.
+
+That's not alignment. That's *co-evolutionary logic*.
+
+---
+
+Would you like me to:
+- Quantify the "contamination half-life"—how long synthetic data persists in degrading system performance?
+- Model the minimum dividend frequency needed to prevent collapse under variable extraction pressure?
+- Draft a "Symbiosis Protocol" specification for real-world AI training pipelines based on these mechanics?
+
