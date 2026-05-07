@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spacetime Hyperbolic Visualizer</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #eee;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 { margin-bottom: 5px; color: #00ffcc; }
+        p { max-width: 800px; text-align: center; margin-bottom: 20px; color: #aaa; }
+        .controls {
+            display: flex;
+            gap: 20px;
+            background: #222;
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        button {
+            background: #00ffcc;
+            color: #111;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        button:hover { background: #00ccaa; }
+        canvas {
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+        }
+        input[type="range"] { width: 200px; cursor: pointer; }
+        .label-val { font-weight: bold; color: #ffeb3b; width: 50px; display: inline-block;}
+    </style>
+</head>
+<body>
+
+    <h1>Hyperbolic Spacetime Visualizer</h1>
+    <p>Toggle between <b>Euclidean Space (X² + Y²)</b> and <b>Minkowski Spacetime (X² - T²)</b>. <br>Move the slider to see how "rotation" works in each geometry.</p>
+
+    <div class="controls">
+        <button id="modeBtn" onclick="toggleMode()">Mode: Spacetime (Hyperbola)</button>
+        <div>
+            <label for="speedSlider" id="sliderLabel">Velocity (v/c): </label>
+            <input type="range" id="speedSlider" min="-0.99" max="0.99" step="0.01" value="0" oninput="draw()">
+            <span class="label-val" id="speedVal">0.00</span>
+        </div>
+    </div>
+
+    <canvas id="canvas" width="600" height="600"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const width = canvas.width;
+        const height = canvas.height;
+        const cx = width / 2;
+        const cy = height / 2;
+        const scale = 50; // Pixels per unit
+
+        let isSpacetime = true;
+
+        function toggleMode() {
+            isSpacetime = !isSpacetime;
+            const btn = document.getElementById('modeBtn');
+            const sliderLabel = document.getElementById('sliderLabel');
+            const slider = document.getElementById('speedSlider');
+            
+            if (isSpacetime) {
+                btn.innerText = "Current: Minkowski Spacetime (Hyperbolas)";
+                btn.style.background = "#00ffcc";
+                sliderLabel.innerText = "Velocity (v/c): ";
+                slider.min = "-0.99"; slider.max = "0.99"; slider.value = "0";
+            } else {
+                btn.innerText = "Current: Euclidean Space (Circles)";
+                btn.style.background = "#ff66cc";
+                sliderLabel.innerText = "Rotation Angle: ";
+                slider.min = "-3.14"; slider.max = "3.14"; slider.value = "0";
+            }
+            draw();
+        }
+
+        // Convert Math coordinates to Canvas coordinates
+        function mapX(x) { return cx + x * scale; }
+        function mapY(y) { return cy - y * scale; } // Y goes up in math
+
+        function drawLine(x1, y1, x2, y2, color, lw = 1, dash = []) {
+            ctx.beginPath();
+            ctx.strokeStyle = color;
+            ctx.lineWidth = lw;
+            ctx.setLineDash(dash);
+            ctx.moveTo(mapX(x1), mapY(y1));
+            ctx.lineTo(mapX(x2), mapY(y2));
+            ctx.stroke();
+            ctx.setLineDash([]);
+        }
+
+        function drawCircle(r, color) {
+            ctx.beginPath();
+            ctx.strokeStyle = color;
+            ctx.arc(cx, cy, r * scale, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+
+        function drawHyperbola(r, color) {
+            ctx.beginPath();
+            ctx.strokeStyle = color;
+            for (let y = -10; y <= 10; y += 0.1) {
+                let x = Math.sqrt(r*r + y*y);
+                if (y === -10) ctx.moveTo(mapX(x), mapY(y));
+                else ctx.lineTo(mapX(x), mapY(y));
+            }
+            ctx.stroke();
+
+            ctx.beginPath();
+            for (let y = -10; y <= 10; y += 0.1) {
+                let x = -Math.sqrt(r*r + y*y);
+                if (y === -10) ctx.moveTo(mapX(x), mapY(y));
+                else ctx.lineTo(mapX(x), mapY(y));
+            }
+            ctx.stroke();
+            
+            // Time-like hyperbolas
+            ctx.beginPath();
+            ctx.strokeStyle = "rgba(0, 255, 204, 0.2)";
+            for (let x = -10; x <= 10; x += 0.1) {
+                let y = Math.sqrt(r*r + x*x);
+                if (x === -10) ctx.moveTo(mapX(x), mapY(y));
+                else ctx.lineTo(mapX(x), mapY(y));
+            }
+            ctx.stroke();
+            ctx.beginPath();
+            for (let x = -10; x <= 10; x += 0.1) {
+                let y = -Math.sqrt(r*r + x*x);
+                if (x === -10) ctx.moveTo(mapX(x), mapY(y));
+                else ctx.lineTo(mapX(x), mapY(y));
+            }
+            ctx.stroke();
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+            
+            let val = parseFloat(document.getElementById('speedSlider').value);
+            document.getElementById('speedVal').innerText = val.toFixed(2);
+
+            // Draw Grid
+            for(let i = -10; i <= 10; i++) {
+                drawLine(i, -10, i, 10, '#222');
+                drawLine(-10, i, 10, i, '#222');
+            }
+
+            // Draw Axes
+            drawLine(-10, 0, 10, 0, '#fff', 2); // X axis
+            drawLine(0, -10, 0, 10, '#fff', 2); // Y/T axis
+            
+            ctx.fillStyle = "#fff";
+            ctx.font = "16px Arial";
+            ctx.fillText("Space (X)", mapX(8), mapY(-0.5));
+            ctx.fillText(isSpacetime ? "Time (T)" : "Space (Y)", mapX(0.2), mapY(8));
+
+            if (isSpacetime) {
+                // LIGHT CONE
+                drawLine(-10, -10, 10, 10, '#ff3333', 2, [5, 5]);
+                drawLine(-10, 10, 10, -10, '#ff3333', 2, [5, 5]);
+                ctx.fillStyle = "#ff3333";
+                ctx.fillText("Light Cone (Speed of Light)", mapX(4), mapY(5));
+
+                // Draw Base Hyperbolas
+                drawHyperbola(3, '#00ffcc');
+                drawHyperbola(6, '#005544');
+
+                // Lorentz Transformation (Hyperbolic Rotation)
+                let beta = val;
+                let gamma = 1 / Math.sqrt(1 - beta * beta);
+                
+                // Point starting at x=3, t=0
+                let px = 3 * gamma;
+                let pt = 3 * gamma * beta;
+
+                // Draw moving axes (Observer's frame warping)
+                drawLine(-10, -10*beta, 10, 10*beta, '#ffeb3b', 1); // New X'
+                drawLine(-10*beta, -10, 10*beta, 10, '#ffeb3b', 1); // New T'
+
+                // Draw Point
+                ctx.beginPath();
+                ctx.arc(mapX(px), mapY(pt), 8, 0, Math.PI * 2);
+                ctx.fillStyle = '#ffeb3b';
+                ctx.fill();
+                
+                ctx.fillStyle = "#ffeb3b";
+                ctx.fillText("You are accelerating!", mapX(px) + 15, mapY(pt));
+
+            } else {
+                // Euclidean Base Circles
+                drawCircle(3, '#ff66cc');
+                drawCircle(6, '#660044');
+
+                // Standard Rotation
+                let theta = val; // angle
+                let px = 3 * Math.cos(theta);
+                let py = 3 * Math.sin(theta);
+
+                // Draw Point
+                ctx.beginPath();
+                ctx.arc(mapX(px), mapY(py), 8, 0, Math.PI * 2);
+                ctx.fillStyle = '#ffeb3b';
+                ctx.fill();
+
+                // Draw Vector
+                drawLine(0, 0, px, py, '#ffeb3b', 2);
+                
+                ctx.fillStyle = "#ffeb3b";
+                ctx.fillText("You are rotating!", mapX(px) + 15, mapY(py));
+            }
+        }
+
+        draw();
+    </script>
+</body>
+</html>
