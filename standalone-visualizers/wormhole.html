@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Wormhole (Hyperboloid) Visualizer</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        #ui-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(10, 20, 30, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #00ffcc;
+            pointer-events: auto;
+            z-index: 100;
+            max-width: 300px;
+        }
+        h1 { margin: 0 0 10px 0; font-size: 1.2rem; color: #00ffcc; }
+        p { font-size: 0.9rem; margin: 0 0 15px 0; line-height: 1.4; color: #ccc;}
+        .control-group { margin-bottom: 15px; }
+        label { display: block; font-size: 0.9rem; margin-bottom: 5px; }
+        input[type=range] { width: 100%; }
+        #canvas-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+        }
+    </style>
+    <!-- Load Three.js and OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <div id="ui-container">
+        <h1>Einstein-Rosen Bridge</h1>
+        <p><strong>Left-Click & Drag</strong> to rotate.<br><strong>Scroll</strong> to zoom.<br>This 3D grid shows how gravity bends flat spacetime into a hyperboloid "throat" or vortex.</p>
+        
+        <div class="control-group">
+            <label for="throatSize">Throat Radius (The Vortex Size): <span id="throatVal">2</span></label>
+            <input type="range" id="throatSize" min="0.5" max="5" step="0.1" value="2">
+        </div>
+    </div>
+
+    <div id="canvas-container"></div>
+
+    <script>
+        // 1. Scene Setup
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x000000, 0.02);
+
+        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 15, 30);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+
+        // 2. Wormhole Geometry (Hyperboloid of Revolution)
+        let wormholeGroup = new THREE.Group();
+        scene.add(wormholeGroup);
+
+        function createWormhole(throatRadius) {
+            // Clear existing
+            while(wormholeGroup.children.length > 0){ 
+                wormholeGroup.remove(wormholeGroup.children[0]); 
+            }
+
+            const points = [];
+            const height = 20; // How far up and down the "flat" space extends
+            
+            // Mathematical formula for the Hyperbola: r = sqrt(z^2 + throatRadius^2)
+            for (let z = -height; z <= height; z += 0.5) {
+                // To make the ends flatten out like sheets of paper, we exaggerate the curve at the ends
+                let zModified = z * (1 + Math.abs(z)*0.05); 
+                let r = Math.sqrt(zModified * zModified + throatRadius * throatRadius);
+                points.push(new THREE.Vector2(r, z));
+            }
+
+            // Create 3D shape by rotating the hyperbola
+            const geometry = new THREE.LatheGeometry(points, 64);
+
+            // Material 1: The glowing grid lines (Spacetime fabric)
+            const wireframeMaterial = new THREE.MeshBasicMaterial({ 
+                color: 0x00ffcc, 
+                wireframe: true,
+                transparent: true,
+                opacity: 0.3
+            });
+            const wireframeMesh = new THREE.Mesh(geometry, wireframeMaterial);
+
+            // Material 2: The solid transparent glass-like surface
+            const solidMaterial = new THREE.MeshPhysicalMaterial({
+                color: 0x0044ff,
+                transparent: true,
+                opacity: 0.2,
+                side: THREE.DoubleSide,
+                metalness: 0.1,
+                roughness: 0.1,
+                clearcoat: 1.0,
+            });
+            const solidMesh = new THREE.Mesh(geometry, solidMaterial);
+
+            wormholeGroup.add(wireframeMesh);
+            wormholeGroup.add(solidMesh);
+        }
+
+        // Initialize wormhole
+        let currentThroatRadius = 2;
+        createWormhole(currentThroatRadius);
+
+        // 3. The "Vortex" Particles (Energy/Light falling in)
+        const particleCount = 1000;
+        const particleGeometry = new THREE.BufferGeometry();
+        const particlePositions = new Float32Array(particleCount * 3);
+        const particleData = []; // Store angles and z-positions
+
+        for (let i = 0; i < particleCount; i++) {
+            let z = (Math.random() - 0.5) * 40; // Random height
+            let angle = Math.random() * Math.PI * 2; // Random angle
+            particleData.push({ z: z, angle: angle, speed: Math.random() * 0.1 + 0.05 });
+        }
+
+        const particleMaterial = new THREE.PointsMaterial({
+            color: 0xffffff,
+            size: 0.15,
+            transparent: true,
+            opacity: 0.8
+        });
+
+        const particleSystem = new THREE.Points(particleGeometry, particleMaterial);
+        scene.add(particleSystem);
+
+        // 4. Lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+        const pointLight = new THREE.PointLight(0x00ffcc, 2, 50);
+        scene.add(pointLight);
+
+        // 5. UI Interactivity
+        document.getElementById('throatSize').addEventListener('input', function(e) {
+            currentThroatRadius = parseFloat(e.target.value);
+            document.getElementById('throatVal').innerText = currentThroatRadius.toFixed(1);
+            createWormhole(currentThroatRadius);
+        });
+
+        // Handle Window Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // 6. Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Rotate the whole wormhole slowly
+            wormholeGroup.rotation.y += 0.002;
+
+            // Animate Particles to create the "Vortex" effect
+            const positions = particleSystem.geometry.attributes.position ? particleSystem.geometry.attributes.position.array : particlePositions;
+            
+            for (let i = 0; i < particleCount; i++) {
+                let p = particleData[i];
+                
+                // Move particle down the Z axis
+                p.z -= p.speed;
+                // If it hits the bottom universe, teleport it back to the top universe
+                if (p.z < -20) p.z = 20;
+
+                // Swirl angle (Vortex spin gets faster near the narrow throat)
+                let spinSpeed = 0.05 + (1 / (Math.abs(p.z) + 1)); 
+                p.angle += spinSpeed * 0.1;
+
+                // Calculate Radius based on the Hyperbola formula so particles stick to the walls
+                let zMod = p.z * (1 + Math.abs(p.z)*0.05);
+                let r = Math.sqrt(zMod * zMod + currentThroatRadius * currentThroatRadius);
+
+                // Convert polar to cartesian coordinates
+                positions[i * 3] = r * Math.cos(p.angle);     // X
+                positions[i * 3 + 1] = p.z;                   // Y (Up/Down in Three.js is Y, treating it as Z from math)
+                positions[i * 3 + 2] = r * Math.sin(p.angle); // Z
+            }
+
+            particleSystem.geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            particleSystem.geometry.attributes.position.needsUpdate = true;
+
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
