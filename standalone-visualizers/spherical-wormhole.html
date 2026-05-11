@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Spherical Wormhole Visualizer</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+        }
+        #ui-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(10, 15, 25, 0.85);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #00aaff;
+            pointer-events: auto;
+            z-index: 100;
+            max-width: 320px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0, 170, 255, 0.2);
+        }
+        h1 { margin: 0 0 10px 0; font-size: 1.3rem; color: #00aaff; text-transform: uppercase; letter-spacing: 1px;}
+        p { font-size: 0.9rem; margin: 0 0 15px 0; line-height: 1.5; color: #b3d4ff;}
+        .control-group { margin-bottom: 15px; }
+        label { display: block; font-size: 0.9rem; margin-bottom: 8px; font-weight: bold; color: #fff;}
+        input[type=range] { width: 100%; cursor: pointer; accent-color: #00aaff; }
+        .value-display { float: right; color: #00aaff; font-weight: normal; }
+        #canvas-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+        }
+        .instruction { font-size: 0.8rem; color: #00ffcc; margin-top: 10px; font-style: italic;}
+    </style>
+    <!-- Load Three.js and OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <div id="ui-container">
+        <h1>Spherical Wormhole</h1>
+        <p>In actual 3D spatial space, a wormhole acts as a spherical gravitational lens. The center is a portal to <strong>Universe B</strong>, while the edges heavily distort <strong>Universe A</strong>.</p>
+        
+        <div class="control-group">
+            <label for="throatSize">Portal / Throat Size: <span id="throatVal" class="value-display">0.5</span></label>
+            <input type="range" id="throatSize" min="0.1" max="0.9" step="0.05" value="0.5">
+        </div>
+
+        <div class="control-group">
+            <label for="lensingStrength">Gravitational Lensing: <span id="lensVal" class="value-display">2.0</span></label>
+            <input type="range" id="lensingStrength" min="0.0" max="5.0" step="0.1" value="2.0">
+        </div>
+
+        <div class="instruction">
+            Left-Click & Drag to look around.<br>
+            Scroll to zoom in/out.
+        </div>
+    </div>
+
+    <div id="canvas-container"></div>
+
+    <script>
+        // 1. Scene Setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 2000);
+        camera.position.set(0, 0, 15);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.autoRotate = true; // Slowly spin to show off the lensing
+        controls.autoRotateSpeed = 0.5;
+        controls.minDistance = 6;
+        controls.maxDistance = 50;
+
+        // 2. Generate Procedural Universes (Starboxes)
+        function createUniverseTexture(bgColor, starColor, hasNebula = false) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 2048;
+            canvas.height = 1024;
+            const ctx = canvas.getContext('2d');
+            
+            // Base dark background
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add nebulas (colorful gas clouds)
+            if (hasNebula) {
+                for(let i = 0; i < 30; i++) {
+                    let x = Math.random() * canvas.width;
+                    let y = Math.random() * canvas.height;
+                    let r = Math.random() * 300 + 100;
+                    let grad = ctx.createRadialGradient(x, y, 0, x, y, r);
+                    grad.addColorStop(0, starColor);
+                    grad.addColorStop(1, 'transparent');
+                    ctx.fillStyle = grad;
+                    ctx.globalAlpha = Math.random() * 0.4;
+                    ctx.beginPath();
+                    ctx.arc(x, y, r, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            // Sprinkle Stars
+            ctx.globalAlpha = 1.0;
+            for (let i = 0; i < 4000; i++) {
+                // Randomly mix white stars with the colored stars
+                ctx.fillStyle = Math.random() > 0.4 ? '#ffffff' : starColor;
+                let x = Math.random() * canvas.width;
+                let y = Math.random() * canvas.height;
+                // Make some stars bigger/brighter
+                let s = Math.random() > 0.95 ? Math.random() * 2.5 + 1 : Math.random() * 1.5;
+                ctx.fillRect(x, y, s, s);
+            }
+            
+            const texture = new THREE.CanvasTexture(canvas);
+            texture.mapping = THREE.EquirectangularReflectionMapping;
+            return texture;
+        }
+
+        // Universe A (Outside): Deep Blue space with cyan/white stars
+        const texUniverseA = createUniverseTexture('#050a15', '#00aaff', true);
+        
+        // Universe B (Inside): Deep Crimson space with fiery orange/yellow stars
+        const texUniverseB = createUniverseTexture('#150505', '#ff5500', true);
+
+        // Set our physical surroundings to Universe A
+        scene.background = texUniverseA;
+
+        // 3. Wormhole Shader Material
+        const vertexShader = `
+            varying vec3 vNormal;
+            varying vec3 vWorldPosition;
+            
+            void main() {
+                // Calculate normal in world space
+                vNormal = normalize(mat3(modelMatrix) * normal);
+                
+                // Calculate position in world space
+                vec4 worldPos = modelMatrix * vec4(position, 1.0);
+                vWorldPosition = worldPos.xyz;
+                
+                gl_Position = projectionMatrix * viewMatrix * worldPos;
+            }
+        `;
+
+        const fragmentShader = `
+            uniform sampler2D texA;
+            uniform sampler2D texB;
+            uniform vec3 cameraPos;
+            uniform float portalThreshold;
+            uniform float lensingStrength;
+            
+            varying vec3 vNormal;
+            varying vec3 vWorldPosition;
+
+            // Maps a 3D direction vector to 2D equirectangular UV coordinates
+            vec2 dirToUV(vec3 dir) {
+                float u = 0.5 + atan(dir.z, dir.x) / (2.0 * 3.14159265);
+                float v = 0.5 - asin(clamp(dir.y, -1.0, 1.0)) / 3.14159265;
+                return vec2(u, v);
+            }
+
+            void main() {
+                // Vector from the camera to the pixel on the sphere
+                vec3 viewDir = normalize(vWorldPosition - cameraPos);
+                vec3 normal = normalize(vNormal);
+
+                // Facing Ratio: 1.0 if looking at the center, 0.0 if looking at the very edge
+                float facing = abs(dot(-viewDir, normal));
+
+                // 1. The Portal (Universe B - straight through the center)
+                float portalDist = smoothstep(portalThreshold, 1.0, facing);
+                vec3 dirB = mix(normalize(viewDir - normal * 0.5), viewDir, portalDist);
+                vec2 uvB = dirToUV(dirB);
+                vec4 colorB = texture2D(texB, uvB);
+
+                // 2. Gravitational Lensing (Universe A - bent around the edges)
+                float lensDist = smoothstep(0.0, portalThreshold, facing);
+                // Bending the light ray around the sphere based on gravity strength
+                vec3 dirA = normalize(viewDir - normal * (1.0 - lensDist) * lensingStrength);
+                vec2 uvA = dirToUV(dirA);
+                vec4 colorA = texture2D(texA, uvA);
+
+                // Blend between the Lensed universe and the Portal universe based on the threshold
+                float blend = smoothstep(portalThreshold - 0.03, portalThreshold + 0.03, facing);
+                vec3 finalColor = mix(colorA.rgb, colorB.rgb, blend);
+
+                // 3. The Photon Sphere / Event Horizon Glow
+                // A bright glowing ring where light gets trapped in orbit
+                float ring = smoothstep(portalThreshold - 0.08, portalThreshold, facing) * 
+                             smoothstep(portalThreshold + 0.08, portalThreshold, facing);
+                finalColor += vec3(0.3, 0.7, 1.0) * ring * 1.5;
+
+                gl_FragColor = vec4(finalColor, 1.0);
+            }
+        `;
+
+        const wormholeUniforms = {
+            texA: { value: texUniverseA },
+            texB: { value: texUniverseB },
+            cameraPos: { value: camera.position },
+            // Threshold defines where the portal ends and the lensing begins
+            portalThreshold: { value: 1.0 - parseFloat(document.getElementById('throatSize').value) },
+            lensingStrength: { value: parseFloat(document.getElementById('lensingStrength').value) }
+        };
+
+        const wormholeMaterial = new THREE.ShaderMaterial({
+            vertexShader: vertexShader,
+            fragmentShader: fragmentShader,
+            uniforms: wormholeUniforms
+        });
+
+        // The geometric shape is just a perfect sphere
+        const wormholeGeometry = new THREE.SphereGeometry(4, 64, 64);
+        const wormholeMesh = new THREE.Mesh(wormholeGeometry, wormholeMaterial);
+        scene.add(wormholeMesh);
+
+        // 4. UI Interactivity
+        document.getElementById('throatSize').addEventListener('input', function(e) {
+            let val = parseFloat(e.target.value);
+            document.getElementById('throatVal').innerText = val.toFixed(2);
+            // Invert the slider logic: Higher size = lower threshold for the shader
+            wormholeUniforms.portalThreshold.value = 1.0 - val; 
+        });
+
+        document.getElementById('lensingStrength').addEventListener('input', function(e) {
+            let val = parseFloat(e.target.value);
+            document.getElementById('lensVal').innerText = val.toFixed(1);
+            wormholeUniforms.lensingStrength.value = val;
+        });
+
+        // Handle Window Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // 5. Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Update OrbitControls
+            controls.update();
+
+            // Pass the updated camera position to the shader every frame
+            // This is required to calculate the correct viewing angle and lensing
+            wormholeUniforms.cameraPos.value.copy(camera.position);
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
